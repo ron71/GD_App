@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "44684206206",
+    "firebase_url": "https://gdclub-45e6d.firebaseio.com",
+    "project_id": "gdclub-45e6d",
+    "storage_bucket": "gdclub-45e6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44684206206:android:d52f938cd4a15396",
+        "android_client_info": {
+          "package_name": "in.ac.kiit.justtalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44684206206-msq7i60p6f4g2dfoc4akklr245jcb0c3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.ac.kiit.justtalk",
+            "certificate_hash": "5aec4558f910c3d83c507a2480cd0a31ad7fb9e3"
+          }
+        },
+        {
+          "client_id": "44684206206-nbhinv0tvm4dts9123fbva3u3keok7dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIhnvALJWS9tDjGDKJnmnJbcyUXZHEfak"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44684206206-nbhinv0tvm4dts9123fbva3u3keok7dc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

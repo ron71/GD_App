@@ -1,6 +1,5 @@
 package in.ac.kiit.justtalk.models;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GDEvent {

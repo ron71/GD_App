@@ -4,8 +4,10 @@
     <color name="colorPrimaryDark">#BF360C</color>
     <color name="colorAccent">#FFFF</color>
 
-    <color name="colorPrimaryTheme">#37474F</color>
-    <color name="colorPrimaryDarkTheme">#263228</color>
-    <color name="backgroundDark">#455A64</color>
+    <color name="colorPrimaryTheme">#1C004D</color>
+    <color name="colorPrimaryDarkTheme">#1D1033</color>
+    <color name="backgroundDark">#3A2166</color>
     <color name="colorAccentTheme">#FFFF</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

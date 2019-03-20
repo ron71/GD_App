@@ -14,4 +14,8 @@
         completions."
     </string>
     <string name="default_web_client_id_">"44684206206-nbhinv0tvm4dts9123fbva3u3keok7dc.apps.googleusercontent.com"</string>
+
+    <string name="title_activity_prompting_error">PromptingErrorActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

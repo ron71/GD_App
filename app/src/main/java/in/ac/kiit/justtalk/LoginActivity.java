@@ -37,9 +37,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     String TAG = "TAG";
     FirebaseAuth.AuthStateListener mAuthStateListener;
     GoogleApiClient mGoogleApiClient;
+    Intent signInIntent;
 
     private void signIn() {
-        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+        signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
@@ -123,7 +124,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             Log.e("data",result.getStatus().toString());
             if(result.isSuccess()){
                 GoogleSignInAccount account = result.getSignInAccount();
-                authWithGoogle(account);
+                String email = account.getEmail();
+                Log.e("Email", email);
+                if(!email.contains("@kiit.ac.in")){
+                    startActivity(new Intent(LoginActivity.this, PromptingErrorActivity.class));
+                    finish();
+
+                }else {
+                    authWithGoogle(account);
+                }
             }
             else{
                 Log.e("Erorr", "onActivityResult");
@@ -163,6 +172,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Auth Error",Toast.LENGTH_SHORT).show();
+
                 }
             }
         });

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
         <item>@font/abril_fatface</item>
         <item>@font/aladin</item>
         <item>@font/almendra_sc</item>
+        <item>@font/amita</item>
+        <item>@font/anonymous_pro</item>
+        <item>@font/architects_daughter</item>
     </array>
 </resources>

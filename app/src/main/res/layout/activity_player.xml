@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".playerActivity">
+
+    <TextView
+        android:id="@+id/countdown_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="82dp"
+        android:text="07:00"
+        android:textSize="45dp"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/countdown_button"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_alignBaseline="@+id/countdown_text"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="51dp"
+        android:text="START"
+        android:textSize="35dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:id="@+id/recyclerview">
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

@@ -6,14 +6,12 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
+
     void isUserInitialised(){
         /*
         * Here We gonna retrieve the data from cloud then render them in Profile page and after then add it to local DB
         * */
     }
-=======
->>>>>>> e3c5438dfbc93128beb701590c5a12976f187408
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

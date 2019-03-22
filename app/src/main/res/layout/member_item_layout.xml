@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@color/colorPrimaryTheme"
+    android:id="@+id/member_item_card"
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="30dp">
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:id="@+id/member_roll_edt"
+        android:hint="ROLL NUMBER"
+        android:layout_marginHorizontal="30dp"
+        android:textAlignment="center"
+        android:layout_gravity="center"/>
+    <ImageButton
+        android:layout_height="60dp"
+        android:id="@+id/super_control_btn"
+        android:layout_width="60dp"
+        android:src="@drawable/ic_verified_user_black_24dp"
+        android:backgroundTint="@color/colorPrimaryTheme"
+        />
+
+</LinearLayout>

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:background="#FFF9C4"
+    tools:context=".PlayerScore">
+
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="200dp"
+        android:layout_height="160dp"
+        >
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/profile_image"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/PlayerName"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="Player  Name" />
+
+        <TextView
+            android:id="@+id/PlayerYear"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="Player  Year"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/PlayerStream"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="Player  Stream" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="407dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fluency"
+                    android:textSize="50dp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:background="#AED581"
+                        android:text="1"
+                        android:id="@+id/Fluency1"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="2"
+                        android:backgroundTint="#7CB342"
+                        android:id="@+id/Fluency2"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="3"
+                        android:backgroundTint="#FDD835"
+                        android:id="@+id/Fluency3"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="4"
+                        android:backgroundTint="#F48FB1"
+                        android:id="@+id/Fluency4"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="5"
+                        android:backgroundTint="#E57373"
+                        android:id="@+id/Fluency5"></Button>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Content"
+                    android:textSize="50dp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:background="#AED581"
+                        android:text="1"
+                        android:id="@+id/Content1"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="2"
+                        android:id="@+id/Content2"
+                        android:backgroundTint="#7CB342"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="3"
+                        android:id="@+id/Content3"
+                        android:backgroundTint="#FDD835"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="4"
+                        android:id="@+id/Content4"
+                        android:backgroundTint="#F48FB1"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="5"
+                        android:id="@+id/Content5"
+                        android:backgroundTint="#E57373"></Button>
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Team Work"
+                    android:textSize="50dp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:id="@+id/TW1"
+                        android:background="#AED581"
+                        android:text="1"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:id="@+id/TW2"
+                        android:text="2"
+                        android:backgroundTint="#7CB342"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="3"
+                        android:id="@+id/TW3"
+                        android:backgroundTint="#FDD835"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="4"
+                        android:id="@+id/TW4"
+                        android:backgroundTint="#F48FB1"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="5"
+                        android:id="@+id/TW5"
+                        android:backgroundTint="#E57373"></Button>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Body Language"
+                    android:textSize="50dp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:id="@+id/BL1"
+                        android:background="#AED581"
+                        android:text="1"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:id="@+id/BL2"
+                        android:text="2"
+                        android:backgroundTint="#7CB342"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="3"
+                        android:id="@+id/BL3"
+                        android:backgroundTint="#FDD835"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="4"
+                        android:id="@+id/BL4"
+                        android:backgroundTint="#F48FB1"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="5"
+                        android:id="@+id/BL5"
+                        android:backgroundTint="#E57373"></Button>
+
+
+                </LinearLayout>
+            </ScrollView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Language"
+                    android:textSize="50dp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:id="@+id/Language1"
+                        android:background="#AED581"
+                        android:text="1"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="2"
+                        android:id="@+id/Language2"
+                        android:backgroundTint="#7CB342"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="3"
+                        android:id="@+id/Language3"
+                        android:backgroundTint="#FDD835"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="4"
+                        android:id="@+id/Language4"
+                        android:backgroundTint="#F48FB1"></Button>
+
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="5"
+                        android:id="@+id/Language5"
+                        android:backgroundTint="#E57373"></Button>
+
+
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

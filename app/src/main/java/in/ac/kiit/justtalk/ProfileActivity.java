@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.ColorFilter;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.ContentLoadingProgressBar;
@@ -130,11 +131,46 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             String type = c.getString(4).toUpperCase();
             int yr = c.getInt(5);
             String[] members = c.getString(6).split(",");
+            String acesscode = c.getString(7);
             for(int i=0; i< members.length; i++){
                 mem.add(members[i]);
+                if(i==0){
+                    m1.setText(members[i]);
+                    if(acesscode.charAt(i)=='1'){
+                        img1.setColorFilter(getColor(R.color.skyblue));
+                    }
+                }
+                if(i==1){
+                    m2.setText(members[i]);
+                    if(acesscode.charAt(i)=='1'){
+                        img2.setColorFilter(getColor(R.color.skyblue));
+                    }
+                }
+                if(i==2){
+                    m3.setText(members[i]);
+                    if(acesscode.charAt(i)=='1'){
+                        img3.setColorFilter(getColor(R.color.skyblue));
+                    }
+                }
+                if(i==3){
+                    m4.setText(members[i]);
+                    if(acesscode.charAt(i)=='1'){
+                        img4.setColorFilter(getColor(R.color.skyblue));
+                    }
+                }
+                if(i==4){
+                    m5.setText(members[i]);
+                    if(acesscode.charAt(i)=='1'){
+                        img5.setColorFilter(getColor(R.color.skyblue));
+                    }
+                }
+                if(i==5){
+                    m6.setText(members[i]);
+                    if(acesscode.charAt(i)=='1'){
+                        img6.setColorFilter(getColor(R.color.skyblue));
+                    }
+                }
             }
-
-
         }
 
     }
@@ -240,6 +276,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     mem.add(roll);
                 }else{
                     m1.setError("Enter correct Roll Number!");
+                    return;
                 }
 
                 break;
@@ -255,6 +292,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     mem.add(roll);
                 }else{
                     m2.setError("Enter correct Roll Number!");
+                    return;
                 }
                 break;
             }
@@ -269,6 +307,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     mem.add(roll);
                 }else{
                     m3.setError("Enter correct Roll Number!");
+                    return;
                 }
                 break;
             }
@@ -283,6 +322,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     mem.add(roll);
                 }else{
                     m4.setError("Enter correct Roll Number!");
+                    return;
                 }
                 break;
             }
@@ -296,6 +336,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     mem.add(roll);
                 }else{
                     m5.setError("Enter correct Roll Number!");
+                    return;
                 }
                 break;
             }
@@ -308,8 +349,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 String roll = m6.getText().toString();
                 if(roll.length()==7){
                     mem.add(roll);
+
                 }else{
                     m6.setError("Enter correct Roll Number!");
+                    return;
                 }
                 break;
             }

@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">JustTalk</string>
     <string name="title_activity_login">Sign in</string>
+   <!-- Strings related to network checking-->
+    <string name="Alert_title">Oops!!!</string>
+    <string name="Alert_msg">No Internet Connection.</string>
+    <string name="neg_button">Close App</string>
+    <string name="pos_button">Open Settings</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>

@@ -1,7 +1,13 @@
 package in.ac.kiit.justtalk;
 
+import android.app.AlertDialog;
+
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,8 +34,23 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         hideNavigationBar();
-        transition();
+
         initialiseDatabase();
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        if (networkInfo != null && networkInfo.isConnected()) {
+            transition();
+        } else {
+            alert();
+        }
     }
 
     public void transition(){
@@ -52,6 +73,27 @@ public class SplashScreen extends AppCompatActivity {
 
     }
 
+    public void alert(){
+        AlertDialog.Builder a_builder = new AlertDialog.Builder(SplashScreen.this);
+        a_builder.setMessage(R.string.Alert_msg).setCancelable(false)
+                .setNegativeButton(R.string.neg_button, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })
+                .setPositiveButton(R.string.pos_button, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent openSettingsApp = getPackageManager().getLaunchIntentForPackage("com.android.settings");
+                        startActivity(openSettingsApp);
+                    }
+                });
+        AlertDialog alertDialog = a_builder.create();
+        alertDialog.setTitle(R.string.Alert_title);
+        alertDialog.show();
+    }
+
     public void hideNavigationBar() {
         this.getWindow().getDecorView().
                 setSystemUiVisibility(
@@ -64,3 +106,4 @@ public class SplashScreen extends AppCompatActivity {
                 );
     }
 }
+

@@ -5,4 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradientbackground"
-    tools:context=".SplashScreen"/>
+    tools:context=".SplashScreen"
+    android:gravity="center"
+    android:orientation="vertical">
+
+</android.support.constraint.ConstraintLayout>

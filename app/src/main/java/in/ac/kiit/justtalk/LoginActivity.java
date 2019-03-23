@@ -1,6 +1,8 @@
 package in.ac.kiit.justtalk;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +28,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import in.ac.kiit.justtalk.models.AppUser;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
 
@@ -38,6 +43,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     FirebaseAuth.AuthStateListener mAuthStateListener;
     GoogleApiClient mGoogleApiClient;
     Intent signInIntent;
+
+
 
     private void signIn() {
         signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
@@ -60,7 +67,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         setContentView(R.layout.activity_login);
         signInButton = findViewById(R.id.signInBtn);
         mAuth = FirebaseAuth.getInstance();
-
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -161,13 +167,18 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 //                    }
 //                });
 
-    private void authWithGoogle(GoogleSignInAccount account) {
+    private void authWithGoogle(final GoogleSignInAccount account) {
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(),null);
         mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    if (isNotAvailableInLocalDB()){
+                        startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                    }
+                    else {
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    }
                     finish();
                 }
                 else{
@@ -180,8 +191,23 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 //
 //    }
 
+
+
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    boolean isNotAvailableInLocalDB(){
+
+        String sql = "SELECT * FROM USER;";
+        SQLiteDatabase db = openOrCreateDatabase("gddb", MODE_PRIVATE, null);
+        Cursor c = db.rawQuery(sql,null);
+        if(!c.moveToNext()){
+            // no entries
+            return true;
+        }
+        return false;
 
     }
 

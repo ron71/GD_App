@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:background="#FFF9C4"
+    tools:background="#E1BEE7   "
     tools:context=".PlayerScore">
 
 

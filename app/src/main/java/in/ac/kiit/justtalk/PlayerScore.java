@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class PlayerScore extends AppCompatActivity implements View.OnClickListener {
 
@@ -91,7 +93,8 @@ public class PlayerScore extends AppCompatActivity implements View.OnClickListen
         Language5.setOnClickListener(this);
 
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(PlayerScore.this);
+
+/*        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(PlayerScore.this);
         if (acct != null) {
             String personName = acct.getDisplayName();
             name.setText(personName);
@@ -111,7 +114,7 @@ public class PlayerScore extends AppCompatActivity implements View.OnClickListen
             Uri personPhoto = acct.getPhotoUrl();
             LoadImageFromURL(personPhoto);
         }
-
+*/
     }
 
     private void LoadImageFromURL(Uri personPhoto) {

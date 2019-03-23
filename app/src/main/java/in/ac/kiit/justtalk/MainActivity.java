@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     String timeStamp;
     String type = "basic";
     String topic = "Lovable Kiitians";
+    String duration = "420000";
 
     EditText p1,p2,p3,p4,p5,p6;
     Button g2go;
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     players.put(roll.get(i), new Scores());
                 }
 
-                GDEvent gd = new GDEvent(gdID, id, timeStamp,type, topic, players );
+                GDEvent gd = new GDEvent(gdID, id, timeStamp,type, topic, players , "7000");
                 Intent intent =new Intent(MainActivity.this, playerActivity.class);
                 intent.putExtra("gdID", gdID);
                 intent.putExtra("organiserID", organiserID);
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("type", type);
                 intent.putExtra("topic", topic);
                 intent.putExtra("playerSet", players);
+                intent.putExtra("duration", duration);
                 startActivity(intent);
                 finish();
 

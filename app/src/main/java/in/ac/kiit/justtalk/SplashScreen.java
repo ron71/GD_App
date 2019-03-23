@@ -36,22 +36,23 @@ public class SplashScreen extends AppCompatActivity {
         hideNavigationBar();
 
         initialiseDatabase();
+        transition();
 
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        if (networkInfo != null && networkInfo.isConnected()) {
-            transition();
-        } else {
-            alert();
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        ConnectivityManager connMgr = (ConnectivityManager)
+//                getSystemService(Context.CONNECTIVITY_SERVICE);
+//        NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+//        if (networkInfo != null && networkInfo.isConnected()) {
+//            transition();
+//        } else {
+//            alert();
+//        }
+//    }
 
     public void transition(){
         Thread t =  new Thread(){

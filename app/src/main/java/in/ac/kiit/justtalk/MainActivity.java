@@ -23,11 +23,6 @@ import in.ac.kiit.justtalk.models.Scores;
 public class MainActivity extends AppCompatActivity {
 
 
-    void isUserInitialised(){
-        /*
-        * Here We gonna retrieve the data from cloud then render them in Profile page and after then add it to local DB
-        * */
-    }
     String gdID;
     String organiserID;
     String timeStamp;
@@ -83,25 +78,18 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar.make(view,"Minimum 3 players are mandatory for the GD.", Snackbar.LENGTH_LONG).show();
                     return;
                 }
-                HashMap<String, Scores> players = new HashMap<String, Scores>();
-                for(i=0; i<roll.size(); i++){
-                    players.put(roll.get(i), new Scores());
-                }
 
-                GDEvent gd = new GDEvent(gdID, id, timeStamp,type, topic, players , "7000");
-                Intent intent =new Intent(MainActivity.this, playerActivity.class);
+                //GDEvent gd = new GDEvent(gdID, id, timeStamp,type, topic, players , "7000");
+                Intent intent =new Intent(MainActivity.this, ProfileActivity.class);
                 intent.putExtra("gdID", gdID);
                 intent.putExtra("organiserID", organiserID);
                 intent.putExtra("time", timeStamp);
                 intent.putExtra("type", type);
                 intent.putExtra("topic", topic);
-                intent.putExtra("playerSet", players);
+                intent.putExtra("playerSet", roll);
                 intent.putExtra("duration", duration);
                 startActivity(intent);
                 finish();
-
-
-
 
             }
         });

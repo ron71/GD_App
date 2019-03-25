@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -49,6 +52,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     String user_name="", user_mail="";
     String year = "";
     String type;
+    int flag[] = new int[6];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,12 +82,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         m6 = findViewById(R.id.member_roll_edt6);
 
         saveBtn.setOnClickListener(this);
-        m1.setOnClickListener(this);
-        m2.setOnClickListener(this);
-        m3.setOnClickListener(this);
-        m4.setOnClickListener(this);
-        m5.setOnClickListener(this);
-        m6.setOnClickListener(this);
+        img1.setOnClickListener(this);
+        img2.setOnClickListener(this);
+        img3.setOnClickListener(this);
+        img4.setOnClickListener(this);
+        img5.setOnClickListener(this);
+        img6.setOnClickListener(this);
 
 
 
@@ -98,7 +102,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         name.setText(user_name);
         mail.setText(user_mail);
-
+        fdb = FirebaseFirestore.getInstance();
 
         rgb.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -130,6 +134,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             String brnch = c.getString(3).toUpperCase();
             String type = c.getString(4).toUpperCase();
             int yr = c.getInt(5);
+
             String[] members = c.getString(6).split(",");
             String acesscode = c.getString(7);
             for(int i=0; i< members.length; i++){
@@ -138,36 +143,42 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     m1.setText(members[i]);
                     if(acesscode.charAt(i)=='1'){
                         img1.setColorFilter(getColor(R.color.skyblue));
+                        flag[i] = 1;
                     }
                 }
                 if(i==1){
                     m2.setText(members[i]);
                     if(acesscode.charAt(i)=='1'){
                         img2.setColorFilter(getColor(R.color.skyblue));
+                        flag[i] = 1;
                     }
                 }
                 if(i==2){
                     m3.setText(members[i]);
                     if(acesscode.charAt(i)=='1'){
                         img3.setColorFilter(getColor(R.color.skyblue));
+                        flag[i] = 1;
                     }
                 }
                 if(i==3){
                     m4.setText(members[i]);
                     if(acesscode.charAt(i)=='1'){
                         img4.setColorFilter(getColor(R.color.skyblue));
+                        flag[i] = 1;
                     }
                 }
                 if(i==4){
                     m5.setText(members[i]);
                     if(acesscode.charAt(i)=='1'){
                         img5.setColorFilter(getColor(R.color.skyblue));
+                        flag[i] = 1;
                     }
                 }
                 if(i==5){
                     m6.setText(members[i]);
                     if(acesscode.charAt(i)=='1'){
                         img6.setColorFilter(getColor(R.color.skyblue));
+                        flag[i] = 1;
                     }
                 }
             }
@@ -216,15 +227,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
   void renderScreen(AppUser user){
       branch.setText(user.getBranch());
-      Log.e("BRANCH", user.getBranch());
+//      Log.e("BRANCH", user.getBranch());
 
       LinearLayout l=null;
-      if(!user.getType().equals("member")){
-          l = findViewById(R.id.memberList);
+      if(user.getType().equals("master")){
+          l = findViewById(R.id.member_des);
 
 
       }else{
-          l = findViewById(R.id.member_des);
+          l = findViewById(R.id.memberList);
       }
       ViewGroup parent = (ViewGroup) l.getParent();
       if (parent != null) {
@@ -234,7 +245,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
    }
 
     void addUserInFireBase(AppUser user){
-        fdb.collection("users").document(user.getUserID()).set(user);
+        if(user!=null)
+            fdb.collection("users").document(user.getUserID()).set(user);
     }
 
     @Override
@@ -261,6 +273,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 }else {
                     type="master";
                 }
+                mem.add(m1.getText().toString());
+                mem.add(m2.getText().toString());
+                mem.add(m3.getText().toString());
+                mem.add(m4.getText().toString());
+                mem.add(m5.getText().toString());
+                mem.add(m6.getText().toString());
+
+                mem = trimList(mem);
+
 
                 AppUser user = new AppUser(user_mail.substring(0,user_mail.indexOf("@")),user_mail,mem,user_name, year, type,brnch.toUpperCase());
                 addUserInFireBase(user);
@@ -271,14 +292,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     m1.setError("No Roll Number associated provided!");
                     return;
                 }
-                String roll = m1.getText().toString();
-                if(roll.length()==7){
-                    mem.add(roll);
-                }else{
-                    m1.setError("Enter correct Roll Number!");
-                    return;
-                }
 
+                if(flag[0]==1){
+                    img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp));
+                    flag[0]=0;
+                }
+                else{
+                    img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+                    flag[0]=1;
+                }
                 break;
             }
             case R.id.super_control_btn2:{
@@ -287,13 +309,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     return;
                 }
 
-                String roll = m2.getText().toString();
-                if(roll.length()==7){
-                    mem.add(roll);
-                }else{
-                    m2.setError("Enter correct Roll Number!");
-                    return;
+                if(flag[1]==1){
+                    img2.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp));
+                    flag[1]=0;
                 }
+                else{
+                    img2.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+                    flag[1]=1;
+                }
+
                 break;
             }
             case R.id.super_control_btn3:{
@@ -302,12 +326,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     return;
                 }
 
-                String roll = m3.getText().toString();
-                if(roll.length()==7){
-                    mem.add(roll);
-                }else{
-                    m3.setError("Enter correct Roll Number!");
-                    return;
+                if(flag[2]==1){
+                    img3.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp));
+                    flag[2]=0;
+                }
+                else{
+                    img3.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+                    flag[2]=1;
+
                 }
                 break;
             }
@@ -317,12 +343,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     return;
                 }
 
-                String roll = m4.getText().toString();
-                if(roll.length()==7){
-                    mem.add(roll);
-                }else{
-                    m4.setError("Enter correct Roll Number!");
-                    return;
+                if(flag[3]==1){
+                    img4.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp));
+                    flag[3]=0;
+                }
+                else{
+                    img4.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+                    flag[3]=1;
                 }
                 break;
             }
@@ -331,12 +358,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     m5.setError("No Roll Number associated provided!");
                     return;
                 }
-                String roll = m5.getText().toString();
-                if(roll.length()==7){
-                    mem.add(roll);
-                }else{
-                    m5.setError("Enter correct Roll Number!");
-                    return;
+
+                if(flag[4]==1){
+                    img5.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp));
+                    flag[4]=0;
+                }
+                else{
+                    img5.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+                    flag[4]=1;
                 }
                 break;
             }
@@ -346,17 +375,27 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     return;
                 }
 
-                String roll = m6.getText().toString();
-                if(roll.length()==7){
-                    mem.add(roll);
-
-                }else{
-                    m6.setError("Enter correct Roll Number!");
-                    return;
+                if(flag[5]==1){
+                    img6.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp));
+                    flag[5]=0;
+                }
+                else{
+                    img6.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+                    flag[5]=1;
                 }
                 break;
             }
         }
 
+    }
+
+    ArrayList<String> trimList(ArrayList<String> mem){
+
+        for(int i=0; i<mem.size(); i++){
+            if(mem.get(i).equals("")|| mem.get(i).length()!=7){
+                mem.remove(i);
+            }
+        }
+        return mem;
     }
 }

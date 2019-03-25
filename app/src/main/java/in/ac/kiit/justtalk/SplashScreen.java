@@ -23,7 +23,7 @@ public class SplashScreen extends AppCompatActivity {
                 "type varchar(10) NOT NULL," +
                 "year integer(1)," +
                 "members varchar(100)," +
-                "accessCode integer(6));";
+                "accessCode varchar(6));";
 
         SQLiteDatabase db = openOrCreateDatabase("gddb", MODE_PRIVATE,null);
         db.execSQL(sql);

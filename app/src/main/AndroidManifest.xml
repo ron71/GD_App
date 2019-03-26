@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InitiateGDActivity"></activity>
+        <activity android:name=".ScoreBookActivity"></activity>
+        <activity android:name=".InitiateGDActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
@@ -33,7 +34,7 @@
             android:label="@string/title_activity_prompting_error"
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashScreen"></activity>
+        <activity android:name=".SplashScreen" />
         <activity android:name=".MainActivity" />
 
         <meta-data

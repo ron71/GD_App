@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginHorizontal="100dp"
+        android:layout_marginHorizontal="80dp"
         android:gravity="center">
         <ImageView
             android:layout_width="50dp"
@@ -25,8 +25,8 @@
             android:layout_width="match_parent"
             android:textStyle="bold"
             android:textColor="@color/colorAccentTheme"
+            android:gravity="center"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
             android:layout_gravity="center"
             android:text="07:00"
             android:textSize="45dp" />
@@ -34,8 +34,45 @@
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:id="@+id/live_player_list">
+
     </android.support.v7.widget.RecyclerView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancelbtnBtn"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="CANCEL"
+            android:backgroundTint="#EF5350"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/save_btnBtn"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:text="SAVE"
+            android:backgroundTint="#B0BEC5"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sendBtn"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="SEND"
+            android:backgroundTint="#4CA"/>
+    </LinearLayout>
 
 </LinearLayout>

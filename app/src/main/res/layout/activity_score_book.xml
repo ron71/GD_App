@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScoreBookActivity"
+    android:background="@color/colorPrimaryTheme"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:src="@color/colorAccentTheme"
+                android:id="@+id/player_avatar"
+                app:civ_border_width="5sp"
+                app:civ_border_color="@color/skyblue"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NAME : ROHAN KUMAR"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:id="@+id/playerName"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ROLL NO. : 1605301"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:id="@+id/playerroll"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BRANCH : CSE"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:id="@+id/playerBranch"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="YEAR : 3"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:id="@+id/playerYr"/>
+
+
+            </LinearLayout>
+        </LinearLayout>r
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroundDark"
+            android:layout_marginVertical="15dp"
+            android:translationZ="20dp"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="FLUENCY"
+                    android:textColor="@color/skyblue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:background="#76FF03"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:id="@+id/fluency_five"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textColor="@color/colorAccentTheme"
+                        android:id="@+id/fluency_four"
+                        android:textStyle="bold"
+                        android:background="#7CB342"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:background="#F9A825"
+                        android:id="@+id/fluency_three"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:background="#FF6F00"
+                        android:id="@+id/fluency_two"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:id="@+id/fluency_one"
+                        android:background="#EF5330"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:id="@+id/fluency_zero"
+                        android:layout_weight="1"
+                        android:background="#C62828"
+                        android:textSize="50sp"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroundDark"
+            app:cardCornerRadius="12dp"
+            android:layout_marginVertical="15dp"
+            android:translationZ="20dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="CONTENT"
+                    android:textColor="@color/skyblue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:background="#76FF03"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:id="@+id/content_five"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textColor="@color/colorAccentTheme"
+                        android:id="@+id/content_four"
+                        android:textStyle="bold"
+                        android:background="#7CB342"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:background="#F9A825"
+                        android:id="@+id/content_three"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:background="#FF6F00"
+                        android:id="@+id/content_two"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:id="@+id/content_one"
+                        android:background="#EF5330"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:id="@+id/content_zero"
+                        android:layout_weight="1"
+                        android:background="#C62828"
+                        android:textSize="50sp"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginVertical="15dp"
+            android:translationZ="20dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroundDark"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="TEAM WORK"
+                    android:textColor="@color/skyblue"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:background="#76FF03"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:id="@+id/team_five"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textColor="@color/colorAccentTheme"
+                        android:id="@+id/team_four"
+                        android:textStyle="bold"
+                        android:background="#7CB342"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:background="#F9A825"
+                        android:id="@+id/team_three"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:background="#FF6F00"
+                        android:id="@+id/team_two"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:id="@+id/team_one"
+                        android:background="#EF5330"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:id="@+id/team_zero"
+                        android:layout_weight="1"
+                        android:background="#C62828"
+                        android:textSize="50sp"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_marginVertical="15dp"
+            android:translationZ="20dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroundDark"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="BODY LANG."
+                    android:textColor="@color/skyblue"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:background="#76FF03"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:id="@+id/body_five"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textColor="@color/colorAccentTheme"
+                        android:id="@+id/body_four"
+                        android:textStyle="bold"
+                        android:background="#7CB342"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:background="#F9A825"
+                        android:id="@+id/body_three"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:background="#FF6F00"
+                        android:id="@+id/body_two"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:id="@+id/body_one"
+                        android:background="#EF5330"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:id="@+id/body_zero"
+                        android:layout_weight="1"
+                        android:background="#C62828"
+                        android:textSize="50sp"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginVertical="15dp"
+            android:translationZ="20dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroundDark"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/playerRoll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="LANGUAGE"
+                    android:textColor="@color/skyblue"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:background="#76FF03"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:id="@+id/lang_five"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textColor="@color/colorAccentTheme"
+                        android:id="@+id/lang_four"
+                        android:textStyle="bold"
+                        android:background="#7CB342"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:background="#F9A825"
+                        android:id="@+id/lang_three"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:background="#FF6F00"
+                        android:id="@+id/lang_two"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:id="@+id/lang_one"
+                        android:background="#EF5330"
+                        android:textSize="50sp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorAccentTheme"
+                        android:textStyle="bold"
+                        android:id="@+id/lang_zero"
+                        android:layout_weight="1"
+                        android:background="#C62828"
+                        android:textSize="50sp"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

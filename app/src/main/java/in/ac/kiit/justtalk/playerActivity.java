@@ -1,5 +1,6 @@
 package in.ac.kiit.justtalk;
 
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,14 +8,20 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import in.ac.kiit.justtalk.adapters.LivePlayerListAdapter;
+import in.ac.kiit.justtalk.models.GDEvent;
+import in.ac.kiit.justtalk.models.Scores;
 
 public class playerActivity extends AppCompatActivity {
     TextView countdownText; // Text view which displays count down
-    Button countdownButton; //Button that starts and pauses timer
     CountDownTimer countDownTimer;
     long TimeLeftinMiliseconds=420000; // 7 minutes converted into milliseconds
     boolean timerRunning;
@@ -25,6 +32,9 @@ public class playerActivity extends AppCompatActivity {
     int duration;
     String time;
     ArrayList <String> players;
+    RecyclerView livePlayerList;
+    Button save, send, cancel;
+    LivePlayerListAdapter adapter;
 
     private void getFromBundle(Bundle b){
         gdID = b.getString("gdID");
@@ -36,11 +46,30 @@ public class playerActivity extends AppCompatActivity {
         timeStamp = b.getString("time");
     }
 
+    private GDEvent createAnEvent(){
+
+        ArrayList<Scores> scores = new ArrayList<>();
+
+        for(int i=0; i<players.size(); i++){
+            scores.add(new Scores(players.get(i)));
+        }
+        return new GDEvent(gdID, organiserID,timeStamp,type,topic,scores, duration);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
         countdownText=findViewById(R.id.countdown_text);
+        livePlayerList = findViewById(R.id.live_player_list);
+
+        send = findViewById(R.id.sendBtn);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(playerActivity.this, ScoreBookActivity.class));
+            }
+        });
 
         Bundle b = getIntent().getExtras();
 
@@ -48,6 +77,12 @@ public class playerActivity extends AppCompatActivity {
         TimeLeftinMiliseconds = duration*60000;
 
         startTimer();
+
+        GDEvent event = createAnEvent();
+        livePlayerList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        adapter = new LivePlayerListAdapter(event,this);
+
+        livePlayerList.setAdapter(adapter);
 
         //startTimer();
     }
@@ -88,4 +123,9 @@ public class playerActivity extends AppCompatActivity {
         countdownText.setText(timeLeft);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        adapter.onActivityResult(requestCode,resultCode,data);
+    }
 }

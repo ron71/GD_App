@@ -315,7 +315,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 AppUser user = new AppUser(user_mail.substring(0,user_mail.indexOf("@")),user_mail,mem,user_name, year, type,brnch.toUpperCase());
                 addUserInFireBase(user);
                 saveToDatabase(user, flag);
-                startActivity(new Intent(this,MainActivity.class));
+                startActivity(new Intent(this,HomeActivity.class));
+                finish();
                 break;
             }
             case R.id.super_control_btn1:{

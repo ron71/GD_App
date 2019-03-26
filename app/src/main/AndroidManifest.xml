@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="in.ac.kiit.justtalk">
-
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -16,33 +15,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".InitiateGDActivity"></activity>
         <activity
-            android:name=".PromptingErrorActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_prompting_error"
-            android:theme="@style/FullscreenTheme" />
-        <activity android:name=".LoginActivity" >
-
-        </activity>
-        <activity android:name=".SplashScreen">
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" >
-
-        </activity>
+        <activity android:name=".ProfileActivity" />
+        <activity
+            android:name=".PromptingErrorActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_prompting_error"
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SplashScreen"></activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".playerActivity">
-
-        </activity>
+        <activity android:name=".playerActivity" />
     </application>
 
 </manifest>

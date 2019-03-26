@@ -195,8 +195,19 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="40dp">
+                android:layout_marginBottom="30dp">
+
+                <Button
+                    android:id="@+id/back_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FBC02D"
+                    android:text="EDIT"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="40dp"/>
 
                 <Button
                     android:id="@+id/good_to_go_btn"
@@ -204,8 +215,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:backgroundTint="#FBC02D"
-                    android:text="GOOD TO GO !"
+                    android:backgroundTint="#9CCC65"
+                    android:text="START"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 

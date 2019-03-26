@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InitiateGDActivity"
+    android:background="@color/colorPrimaryTheme"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/atomic_age"
+        android:gravity="center"
+        android:text="New GD Session"
+        android:layout_marginBottom="80dp"
+        android:textColor="#FBC02D"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+       <android.support.v7.widget.CardView
+           android:layout_width="match_parent"
+           app:cardCornerRadius="15dp"
+           android:translationZ="3dp"
+           android:layout_height="wrap_content"
+           android:backgroundTint="@color/backgroundDark"
+           android:layout_gravity="center"
+           android:layout_marginHorizontal="10dp">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_gravity="center">
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginHorizontal="20dp"
+                   android:layout_marginVertical="10dp"
+                   android:orientation="horizontal">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20dp"
+                       android:textStyle="bold"
+                       android:textColor="@color/colorAccentTheme"
+                       android:text="SESSION ID :  "/>
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/session_id_txt"
+                       android:textStyle="bold"
+                       android:layout_gravity="center"
+                       android:textAlignment="center"
+                       android:text="1605301_2019-10-12-23122123"/>
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginHorizontal="20dp"
+                   android:layout_marginVertical="10dp"
+                   android:orientation="horizontal">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+
+                       android:inputType="text"
+                       android:textSize="20dp"
+                       android:textStyle="bold"
+                       android:textColor="@color/colorAccentTheme"
+                       android:text="TOPIC : "/>
+
+                   <EditText
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/topic_edt"
+                       android:textAlignment="center"
+                       android:hint="Politics,Current Affairs, etc"/>
+               </LinearLayout>
+
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginHorizontal="20dp"
+                   android:layout_marginVertical="10dp"
+                   android:orientation="horizontal">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20dp"
+                       android:textStyle="bold"
+                       android:textColor="@color/colorAccentTheme"
+                       android:text="GD Type : "/>
+
+                   <RadioGroup
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/gd_type_rg"
+                       android:layout_gravity="center"
+                       android:orientation="horizontal"
+                       android:layout_marginHorizontal="10dp">
+                       <RadioButton
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="BASIC"
+                           android:id="@+id/basic_rb"
+                           android:textStyle="bold"
+                           android:layout_weight="1"/>
+
+                       <RadioButton
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="ADVANCE"
+                           android:id="@+id/adv_rb"
+                           android:textStyle="bold"
+                           android:layout_weight="1"/>
+                   </RadioGroup>
+               </LinearLayout>
+
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginHorizontal="20dp"
+                   android:layout_marginVertical="10dp"
+                   android:orientation="horizontal">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20dp"
+                       android:textStyle="bold"
+                       android:textColor="@color/colorAccentTheme"
+                       android:text="PLAYERS : "
+                       android:layout_gravity="center"/>
+
+                   <RadioGroup
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/no_player_rg"
+                       android:layout_gravity="center"
+                       android:orientation="vertical"
+                       android:layout_marginHorizontal="50dp">
+                       <RadioButton
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="THREE PLAYERS"
+                           android:id="@+id/three_player_rb"
+                           android:textStyle="bold"
+                           android:layout_weight="1"/>
+                       <RadioButton
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="FOUR PLAYERS"
+                           android:id="@+id/four_player_rb"
+                           android:textStyle="bold"
+                           android:layout_weight="1"/>
+                       <RadioButton
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="FIVE PLAYERS"
+                           android:id="@+id/five_player_rb"
+                           android:textStyle="bold"
+                           android:layout_weight="1"/>
+                       <RadioButton
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="SIX PLAYERS"
+                           android:id="@+id/six_player_rb"
+                           android:textStyle="bold"
+                           android:layout_weight="1"/>
+                   </RadioGroup>
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginHorizontal="20dp"
+                   android:layout_marginVertical="10dp"
+                   android:orientation="horizontal">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20dp"
+                       android:textStyle="bold"
+                       android:textColor="@color/colorAccentTheme"
+                       android:text="TIME LIMIT : "/>
+
+                   <RadioGroup
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/dur_rg"
+                       android:layout_gravity="center"
+                       android:orientation="horizontal">
+                       <RadioButton
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="7 MIN"
+                           android:id="@+id/seven_rb"
+                           android:textStyle="bold"
+                           android:layout_weight="1"/>
+
+                       <RadioButton
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="10 MIN"
+                           android:id="@+id/ten_rb"
+                           android:textStyle="bold"
+                           android:layout_weight="1"/>
+
+                       <RadioButton
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="15 MIN"
+                           android:id="@+id/fifteen_rb"
+                           android:textStyle="bold"
+                           android:layout_weight="1"/>
+                   </RadioGroup>
+               </LinearLayout>
+
+               <Button
+                   android:layout_width="100dp"
+                   android:layout_height="wrap_content"
+                   android:gravity="center"
+                   android:layout_gravity="end"
+                   android:backgroundTint="#FBC02D"
+                   android:id="@+id/next_btn"
+                   android:text="NEXT"
+                   android:textSize="16sp"
+                   android:textStyle="bold"
+                   android:layout_marginRight="30dp"
+                   android:layout_marginVertical="20dp"/>
+
+
+
+           </LinearLayout>
+
+       </android.support.v7.widget.CardView>
+   </LinearLayout>
+
+

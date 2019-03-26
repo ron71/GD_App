@@ -5,9 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class playerActivity extends AppCompatActivity {
     TextView countdownText; // Text view which displays count down
@@ -16,23 +19,37 @@ public class playerActivity extends AppCompatActivity {
     long TimeLeftinMiliseconds=420000; // 7 minutes converted into milliseconds
     boolean timerRunning;
 
+    String gdID;
+    String organiserID;
+    String type, topic,timeStamp;
+    int duration;
+    String time;
+    ArrayList <String> players;
+
+    private void getFromBundle(Bundle b){
+        gdID = b.getString("gdID");
+        organiserID = b.getString("organiserID");
+        type = b.getString("type");
+        topic = b.getString("topic");
+        duration = b.getInt("duration");
+        players = (ArrayList<String>) b.get("playerSet");
+        timeStamp = b.getString("time");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
         countdownText=findViewById(R.id.countdown_text);
-        countdownButton=findViewById(R.id.countdown_button);
 
+        Bundle b = getIntent().getExtras();
 
-        countdownButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startstop();
+        getFromBundle(b);
+        TimeLeftinMiliseconds = duration*60000;
 
-            }
-        });
-        updateTimer();
         startTimer();
+
+        //startTimer();
     }
     public void startstop(){
         if(timerRunning){
@@ -54,13 +71,11 @@ public class playerActivity extends AppCompatActivity {
 
             }
         }.start();
-        countdownButton.setText("PAUSE");
         timerRunning=true;
     }
 
     public void stopTimer(){
         countDownTimer.cancel();
-        countdownButton.setText("START");
         timerRunning=false;
     }
     public void updateTimer(){

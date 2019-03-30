@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -13,11 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import in.ac.kiit.justtalk.R;
 import in.ac.kiit.justtalk.ScoreBookActivity;
 import in.ac.kiit.justtalk.models.GDEvent;
 import in.ac.kiit.justtalk.models.Scores;
 import in.ac.kiit.justtalk.playerActivity;
+
+import static android.app.Activity.RESULT_OK;
 
 public class LivePlayerListAdapter extends RecyclerView.Adapter<LivePlayerListAdapter.LivePlayerListHolder> {
 
@@ -51,7 +56,7 @@ public class LivePlayerListAdapter extends RecyclerView.Adapter<LivePlayerListAd
         TextView fluency_txt = holder.fluency_txt;
         TextView content_txt = holder.content_txt;
         TextView body_txt = holder.body_txt;
-        TextView lang_txt = holder.body_txt;
+        TextView lang_txt = holder.lang_txt;
         TextView team_txt = holder.team_txt;
         CardView cd = holder.cd;
 
@@ -67,9 +72,9 @@ public class LivePlayerListAdapter extends RecyclerView.Adapter<LivePlayerListAd
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, ScoreBookActivity.class);
-              //  i.putExtra("scores", gdEvent.getPlayerIDs());
+                i.putExtra("scores", gdEvent.getPlayerIDs());
                 i.putExtra("playerno", position);
-                ((playerActivity)context).startActivityForResult(i, 1001);
+                ((Activity)context).startActivityForResult(i,1001);
             }
         });
 
@@ -101,7 +106,12 @@ public class LivePlayerListAdapter extends RecyclerView.Adapter<LivePlayerListAd
         }
     }
 
-    public  void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("MyAdapter", "onActivityResult");
+
+ public void update(GDEvent event, int position){
+        this.gdEvent = event;
+        Log.e("Check", event.getPlayerIDs().get(position).getBodyLanguage()+"");
+        Log.e("",event.getPlayerIDs().get(0).getFluency()+"");
+        notifyItemChanged(position);
     }
 }
+

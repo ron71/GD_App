@@ -54,4 +54,8 @@ public class GDEvent {
     public ArrayList<Scores> getPlayerIDs() {
         return playerIDs;
     }
+
+    public void setPlayerIDs(ArrayList<Scores> playerIDs) {
+        this.playerIDs = playerIDs;
+    }
 }

@@ -1,5 +1,7 @@
 package in.ac.kiit.justtalk.models;
 
+import android.net.Uri;
+
 import java.util.ArrayList;
 
 public class AppUser {
@@ -11,11 +13,12 @@ public class AppUser {
     String year;
     String type;
     String branch;
+    String url;
 
     public AppUser() {
     }
 
-    public AppUser(String roll, String emailID, ArrayList<String> members, String name, String year, String type, String branch) {
+    public AppUser(String roll, String emailID, ArrayList<String> members, String name, String year, String type, String branch, String url) {
         this.userID = roll;
         this.emailID = emailID;
         this.members = members;
@@ -23,6 +26,7 @@ public class AppUser {
         this.year = year;
         this.type = type;
         this.branch = branch;
+        this.url=url;
     }
 
     public String getUserID() {
@@ -51,5 +55,9 @@ public class AppUser {
 
     public String getBranch() {
         return branch;
+    }
+
+    public String getUrl() {
+        return url;
     }
 }

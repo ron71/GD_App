@@ -35,6 +35,8 @@ public class playerActivity extends AppCompatActivity {
     RecyclerView livePlayerList;
     Button save, send, cancel;
     LivePlayerListAdapter adapter;
+    Intent intent;
+    GDEvent event;
 
     private void getFromBundle(Bundle b){
         gdID = b.getString("gdID");
@@ -70,15 +72,15 @@ public class playerActivity extends AppCompatActivity {
                 startActivity(new Intent(playerActivity.this, ScoreBookActivity.class));
             }
         });
-
-        Bundle b = getIntent().getExtras();
+        intent= getIntent();
+        Bundle b = intent.getExtras();
 
         getFromBundle(b);
         TimeLeftinMiliseconds = duration*60000;
 
         startTimer();
 
-        GDEvent event = createAnEvent();
+        event = createAnEvent();
         livePlayerList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         adapter = new LivePlayerListAdapter(event,this);
 
@@ -126,6 +128,35 @@ public class playerActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        adapter.onActivityResult(requestCode,resultCode,data);
+        Log.d("Result OK", "error");
+        Bundle b = data.getExtras();
+        String code = b.getString("code");
+        Log.d("code", code);
+        String codeChunks[] = code.split("_");
+        int position = Integer.parseInt(codeChunks[0]);
+        Log.e("STRING", codeChunks[1]);
+        switch (codeChunks[1]){
+            case "fluency":{
+                event.getPlayerIDs().get(position).setFluency(Integer.parseInt(codeChunks[2]));
+                break;
+            }
+            case "body": {
+                event.getPlayerIDs().get(position).setBodyLanguage(Integer.parseInt(codeChunks[2]));
+                break;
+            }
+            case "lang":{
+                event.getPlayerIDs().get(position).setLanguage(Integer.parseInt(codeChunks[2]));
+                break;
+            }
+            case "content":{
+                event.getPlayerIDs().get(position).setContent(Integer.parseInt(codeChunks[2]));
+                break;
+            }
+            case "team":{
+                event.getPlayerIDs().get(position).setTeamWork(Integer.parseInt(codeChunks[2]));
+                break;
+            }
+        }
+        adapter.update(event,position);
     }
 }

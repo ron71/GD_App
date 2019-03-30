@@ -1,6 +1,9 @@
 package in.ac.kiit.justtalk.models;
 
-public class Scores {
+import java.io.Serializable;
+
+public class Scores implements Serializable
+ {
 
     String id;
     int fluency;

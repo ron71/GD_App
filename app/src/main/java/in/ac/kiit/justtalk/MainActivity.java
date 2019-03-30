@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         p6 = findViewById(R.id.edtPlayer6);
 
         Bundle b = getIntent().getExtras();
-        Log.e("Bundle", b.toString());
+//        Log.e("Bundle", b.toString());
 
         getFromBundle(b);
 

@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -52,6 +53,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     ImageButton img1, img2, img3, img4, img5, img6;
     Button saveBtn;
     String user_name="", user_mail="";
+    String url;
     String year = "";
     String type;
     int flag[] = new int[6];
@@ -97,6 +99,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         if(user!=null){
             user_name = user.getDisplayName();
             user_mail = user.getEmail();
+
+            url = user.getPhotoUrl().toString();
+            Log.e("URL", url);
         }else{
             startActivity(new Intent(ProfileActivity.this, PromptingErrorActivity.class));
             finish();
@@ -236,19 +241,23 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 if(task.isSuccessful()){
                     DocumentSnapshot document = task.getResult();
                     if(document!=null){
-
+                        Log.e("Document", document.toString());
                       appuser = task.getResult().toObject(AppUser.class);
-                      renderScreen(appuser);
-                    }else{
-                       LinearLayout l = findViewById(R.id.member_des);
+                      if(appuser==null){
+                          Snackbar.make(name,"WELCOME TO GD-CLUB!", Snackbar.LENGTH_LONG).show();
+                          LinearLayout l = findViewById(R.id.member_des);
 
-                    ViewGroup parent = (ViewGroup) l.getParent();
-                    if (parent != null) {
-                        parent.removeView(l);
-                    }
-                        return;
-                    }
+                          ViewGroup parent = (ViewGroup) l.getParent();
+                          if (parent != null) {
+                              parent.removeView(l);
+                          }
+                          return;
+                      }else {
 
+                          renderScreen(appuser);
+
+                      }
+                    }
                 }
            }
        });
@@ -257,10 +266,60 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
   void renderScreen(AppUser user){
       branch.setText(user.getBranch());
 //      Log.e("BRANCH", user.getBranch());
+      switch (user.getYear()){
+          case "1": rb1.setActivated(true); break;
+          case "2": rb2.setActivated(true); break;
+          case "3": rb3.setActivated(true); break;
+          case "4": rb4.setActivated(true); break;
+      }
 
       LinearLayout l=null;
       if(user.getType().equals("master")){
           l = findViewById(R.id.member_des);
+          int i=0;
+          switch (user.getMembers().size()){
+              case 1: m1.setText(user.getMembers().get(0));break;
+              case 2: {
+                  m1.setText(user.getMembers().get(0));
+                  m2.setText(user.getMembers().get(1));
+                    break;
+              }
+              case 3:{
+                  m1.setText(user.getMembers().get(0));
+                  m2.setText(user.getMembers().get(1));
+                  m3.setText(user.getMembers().get(2));
+                  break;
+              }
+              case 4 :{
+
+                  m1.setText(user.getMembers().get(0));
+                  m2.setText(user.getMembers().get(1));
+                  m3.setText(user.getMembers().get(2));
+                  m4.setText(user.getMembers().get(3));
+                  break;
+              }
+              case 5:{
+                  m1.setText(user.getMembers().get(0));
+                  m2.setText(user.getMembers().get(1));
+                  m3.setText(user.getMembers().get(2));
+                  m4.setText(user.getMembers().get(3));
+                  m5.setText(user.getMembers().get(4));
+                  break;
+              }
+              case 6:{
+
+                  m1.setText(user.getMembers().get(0));
+                  m2.setText(user.getMembers().get(1));
+                  m3.setText(user.getMembers().get(2));
+                  m4.setText(user.getMembers().get(3));
+                  m5.setText(user.getMembers().get(4));
+                  m6.setText(user.getMembers().get(5));
+                  break;
+              }
+
+
+          }
+
 
 
       }else{
@@ -312,7 +371,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
                 Log.e("Type", type);
-                AppUser user = new AppUser(user_mail.substring(0,user_mail.indexOf("@")),user_mail,mem,user_name, year, type,brnch.toUpperCase());
+                AppUser user = new AppUser(user_mail.substring(0,user_mail.indexOf("@")),user_mail,mem,user_name, year, type,brnch.toUpperCase(), url);
                 addUserInFireBase(user);
                 saveToDatabase(user, flag);
                 startActivity(new Intent(this,HomeActivity.class));
@@ -426,6 +485,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         for(int i=0; i<mem.size(); i++){
             if(mem.get(i).equals("")|| mem.get(i).length()!=7){
                 mem.remove(i);
+                i--;
             }
         }
         return mem;

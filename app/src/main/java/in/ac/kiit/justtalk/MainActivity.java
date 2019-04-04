@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     int duration;
 
     EditText p1,p2,p3,p4,p5,p6;
-    Button g2go;
+    Button g2go, edit;
 
     private void getFromBundle(Bundle b){
         gdID = b.getString("gdID");
@@ -75,6 +75,14 @@ public class MainActivity extends AppCompatActivity {
         p4 = findViewById(R.id.edtPlayer4);
         p5 = findViewById(R.id.edtPlayer5);
         p6 = findViewById(R.id.edtPlayer6);
+
+        edit = findViewById(R.id.back_btn);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         Bundle b = getIntent().getExtras();
 //        Log.e("Bundle", b.toString());
@@ -150,5 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 }

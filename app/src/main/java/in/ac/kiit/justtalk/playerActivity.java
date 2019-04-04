@@ -1,7 +1,10 @@
 package in.ac.kiit.justtalk;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,11 +15,17 @@ import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import in.ac.kiit.justtalk.adapters.LivePlayerListAdapter;
+import in.ac.kiit.justtalk.mailServices.Config;
+import in.ac.kiit.justtalk.mailServices.SendMail;
 import in.ac.kiit.justtalk.models.GDEvent;
 import in.ac.kiit.justtalk.models.Scores;
 
@@ -37,6 +46,8 @@ public class playerActivity extends AppCompatActivity {
     LivePlayerListAdapter adapter;
     Intent intent;
     GDEvent event;
+    FirebaseFirestore firestore;
+    AlertDialog.Builder builder;
 
     private void getFromBundle(Bundle b){
         gdID = b.getString("gdID");
@@ -47,6 +58,7 @@ public class playerActivity extends AppCompatActivity {
         players = (ArrayList<String>) b.get("playerSet");
         timeStamp = b.getString("time");
     }
+
 
     private GDEvent createAnEvent(){
 
@@ -66,12 +78,99 @@ public class playerActivity extends AppCompatActivity {
         livePlayerList = findViewById(R.id.live_player_list);
 
         send = findViewById(R.id.sendBtn);
+        cancel=findViewById(R.id.cancelbtnBtn);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                builder = new AlertDialog.Builder(playerActivity.this);
+                builder.setIcon(R.drawable.ic_mail_black_24dp)
+                        .setTitle("DO YOU REALLY WANT TO DISMISS THIS LIVE SESSION?")
+                        .setMessage("Press 'NO, RETURN' to return back to the live session.")
+                        .setPositiveButton("Yes, DISMISS", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                getApplicationContext().startActivity(new Intent(playerActivity.this, HomeActivity.class));
+                                finish();
+
+                            }
+                        })
+                        .setNegativeButton("NO,RETURN", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                return;
+                            }
+                        });
+                builder.create().show();
+            }
+        });
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(playerActivity.this, ScoreBookActivity.class));
+                final String name = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+                Log.e("Organiser", name);
+
+                builder = new AlertDialog.Builder(playerActivity.this);
+                builder.setIcon(R.drawable.ic_mail_black_24dp)
+                        .setTitle("Want to send the reports via mail?")
+                        .setMessage("Press CANCEL, f you want to have continue evaluating.")
+                        .setPositiveButton("Yes, SEND", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                firestore.collection("gd_events").document(event.getGdID()).set(event);
+                                new SendMail(playerActivity.this, event,name).execute();
+
+                            }
+                        })
+                        .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                return;
+                            }
+                        });
+                builder.create().show();
+
+
+
+
             }
         });
+
+        firestore = FirebaseFirestore.getInstance();
+
+        save =  findViewById(R.id.save_btnBtn);
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dataRender();
+
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+            }
+        });
+
+       builder = new AlertDialog.Builder(playerActivity.this);
+        builder.setIcon(R.drawable.ic_cloud_upload_black_24dp)
+                .setTitle("Want to save it on cloud?")
+                .setMessage("Press CANCEL, f you want to have continue evaluating.")
+                .setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        firestore.collection("gd_events").document(event.getGdID()).set(event);
+
+                    }
+                })
+                .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        return;
+                    }
+                });
+
+
         intent= getIntent();
         Bundle b = intent.getExtras();
 
@@ -96,6 +195,8 @@ public class playerActivity extends AppCompatActivity {
             startTimer();
         }
     }
+
+
 
     public void startTimer(){
         countDownTimer=new CountDownTimer(TimeLeftinMiliseconds,1000) {
@@ -158,5 +259,14 @@ public class playerActivity extends AppCompatActivity {
             }
         }
         adapter.update(event,position);
+    }
+
+    private void dataRender(){
+        Log.e("Event ID ", event.getGdID());
+        Log.e("Event Player 1 ", event.getPlayerIDs().get(0).getTeamWork()+"");
+    }
+
+    void saveEventToCloud(){
+
     }
 }

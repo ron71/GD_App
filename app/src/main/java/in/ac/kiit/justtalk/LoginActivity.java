@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()!=null){
                     //Intent navigation
-                    startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 }
                 else{
                     Toast.makeText(LoginActivity.this, "No Signed", Toast.LENGTH_LONG).show();
@@ -177,7 +177,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
                     }
                     else {
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     }
                     finish();
                 }

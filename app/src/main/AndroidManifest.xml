@@ -15,22 +15,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ScoreBookActivity"></activity>
+        <activity android:name=".Report"></activity>
+        <activity android:name=".ScoreBookActivity" />
         <activity android:name=".InitiateGDActivity" />
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:label="Your GD Sessions"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ProfileActivity" />
         <activity
             android:name=".PromptingErrorActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_prompting_error"
+            android:label="OOPS!.."
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashScreen" >
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,5 +1,6 @@
 package in.ac.kiit.justtalk;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -57,6 +58,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     String year = "";
     String type;
     int flag[] = new int[6];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -267,10 +269,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
       branch.setText(user.getBranch());
 //      Log.e("BRANCH", user.getBranch());
       switch (user.getYear()){
-          case "1": rb1.setActivated(true); break;
-          case "2": rb2.setActivated(true); break;
-          case "3": rb3.setActivated(true); break;
-          case "4": rb4.setActivated(true); break;
+          case "1": rb1.setSelected(true); break;
+          case "2": rb2.setSelected(true); break;
+          case "3": rb3.setSelected(true); break;
+          case "4": rb4.setSelected(true); break;
       }
 
       LinearLayout l=null;

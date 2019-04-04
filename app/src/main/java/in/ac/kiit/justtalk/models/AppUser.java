@@ -14,9 +14,9 @@ public class AppUser {
     String type;
     String branch;
     String url;
+    ArrayList<String> vents = new ArrayList<String>();
+    ArrayList<String> ventsConducted = new ArrayList<>();
 
-    public AppUser() {
-    }
 
     public AppUser(String roll, String emailID, ArrayList<String> members, String name, String year, String type, String branch, String url) {
         this.userID = roll;
@@ -59,5 +59,25 @@ public class AppUser {
 
     public String getUrl() {
         return url;
+    }
+
+    public ArrayList<String> getVents() {
+        return vents;
+    }
+
+    public void setVents(ArrayList<String> vents) {
+        this.vents = vents;
+    }
+
+
+    public ArrayList<String> getVentsConducted() {
+        return ventsConducted;
+    }
+
+    public void setVentsConducted(ArrayList<String> ventsConducted) {
+        this.ventsConducted = ventsConducted;
+    }
+
+    public AppUser() {
     }
 }

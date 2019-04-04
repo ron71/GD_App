@@ -94,11 +94,11 @@ public class InitiateGDActivity extends AppCompatActivity {
                     return;
                 }
                 if(type==null){
-                    Snackbar.make(view, "Please provide the GD Type.", Snackbar.LENGTH_SHORT);
+                    Snackbar.make(next, "Please provide the GD Type.", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 if(dur==0){
-                    Snackbar.make(view, "Please provide the time limit.", Snackbar.LENGTH_SHORT);
+                    Snackbar.make(next, "Please provide the time limit.", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -109,6 +109,7 @@ public class InitiateGDActivity extends AppCompatActivity {
                 i.putExtra("nPlayers", no_of_players);
                 i.putExtra("dur", dur);
                 startActivity(i);
+
 
             }
         });

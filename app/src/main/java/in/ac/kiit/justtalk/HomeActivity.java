@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +19,8 @@ import android.view.MenuItem;
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +33,7 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                startActivity(new Intent(HomeActivity.this, InitiateGDActivity.class));
+               finish();
             }
         });
 
@@ -40,6 +45,14 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        recyclerView = findViewById(R.id.event_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+
+
+
+
     }
 
     @Override
@@ -67,7 +80,7 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about_us) {
             return true;
         }
 
@@ -81,6 +94,7 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
         if(id==R.id.nav_profile){
             startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+
         }
 
 //        if (id == R.id.nav_camera) {

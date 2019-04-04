@@ -247,7 +247,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                       appuser = task.getResult().toObject(AppUser.class);
                       if(appuser==null){
                           Snackbar.make(name,"WELCOME TO GD-CLUB!", Snackbar.LENGTH_LONG).show();
-                          LinearLayout l = findViewById(R.id.member_des);
+                          LinearLayout l = findViewById(R.id.memberList);
 
                           ViewGroup parent = (ViewGroup) l.getParent();
                           if (parent != null) {
@@ -522,6 +522,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         String s = "";
         for(int i=0; i<mem.size(); i++){
             s+=mem.get(i)+",";
+        }
+        if(mem.size()==0){
+            return "";
         }
         s = s.substring(0,s.length()-1);
        Log.e("Member ", s);

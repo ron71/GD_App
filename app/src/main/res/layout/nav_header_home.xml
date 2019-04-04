@@ -19,7 +19,7 @@
         android:layout_gravity="center"
         android:elevation="5dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_person_outline_black_24dp"
+        android:src="@color/colorAccent"
         android:translationZ="10dp"
         app:civ_border_color="#f5f5f5"
         app:civ_border_width="2dp" />
@@ -30,7 +30,7 @@
         android:gravity="center"
         android:id="@+id/user_name"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="@string/nav_header_title"
+        android:text="USER"
         android:layout_gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
@@ -39,6 +39,6 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nav_header_subtitle" />
+        android:text="user@kiit.ac.in" />
 
 </LinearLayout>

@@ -15,11 +15,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerView recyclerView;
+    ImageView avatar;
+    TextView mail,name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +53,18 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        avatar = findViewById(R.id.profile_image);
+        mail = findViewById(R.id.user_mail);
+        name = findViewById(R.id.user_name);
+//
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        if(user!=null) {
+//
+//            Picasso.with(HomeActivity.this).load(user.getPhotoUrl()).into(avatar);
+//            mail.setText(user.getEmail());
+//            name.setText(user.getDisplayName());
+//        }
 
         recyclerView = findViewById(R.id.event_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

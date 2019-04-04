@@ -216,7 +216,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:fontFamily="@font/anonymous_pro"
-                    android:text="You are a verified member of GD CLUB but you don't have the master control."
+                    android:text="You are a verified member of KIIT GD CLUB ."
                     android:textAlignment="center"
                     android:textSize="18sp" />
             </LinearLayout>

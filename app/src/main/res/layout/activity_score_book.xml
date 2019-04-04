@@ -35,7 +35,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="NAME : ROHAN KUMAR"
+                    android:text="NAME : XXXXXX"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -43,7 +43,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ROLL NO. : 1605301"
+                    android:text="ROLL NO. : XXXXXX"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -51,7 +51,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="BRANCH : CSE"
+                    android:text="BRANCH : XXXX"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -60,7 +60,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="YEAR : 3"
+                    android:text="YEAR : X"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp"
                     android:textStyle="bold"

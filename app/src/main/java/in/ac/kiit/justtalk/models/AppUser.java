@@ -80,4 +80,8 @@ public class AppUser {
 
     public AppUser() {
     }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

@@ -54,7 +54,8 @@ public class GDSessionAdapter extends RecyclerView.Adapter<GDSessionAdapter.GDSe
         return holder;
     }
 
-    private void getDate(String timestamp){
+    private void getDateTime(String timestamp){
+        String[] s = timestamp.split("_");
 
     }
 

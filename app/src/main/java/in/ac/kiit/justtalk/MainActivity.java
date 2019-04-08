@@ -138,23 +138,33 @@ public class MainActivity extends AppCompatActivity {
 
                 for(int i=0;i<roll.size(); i++){
                     if(roll.get(i).length()!=7){
-                        roll.remove(i);
-                        Snackbar.make(view,"Please provide valid roll number.", Snackbar.LENGTH_LONG).show();
-                        return;
+                        String s = roll.get(i).substring(0,1);
+                        if(!(s.equals("16")||s.equals("15")||s.equals("20")||s.equals("18")||s.equals("19")))
+                        {
+                            roll.remove(i);
+                            Snackbar.make(view,"Please provide valid roll number.", Snackbar.LENGTH_LONG).show();
+                            return;
+                        }
                     }
                 }
 
                 //GDEvent gd = new GDEvent(gdID, id, timeStamp,type, topic, players , "7000");
-                Intent intent =new Intent(MainActivity.this, playerActivity.class);
-                intent.putExtra("gdID", gdID);
-                intent.putExtra("organiserID", organiserID);
-                intent.putExtra("time", timeStamp);
-                intent.putExtra("type", type);
-                intent.putExtra("topic", topic);
-                intent.putExtra("playerSet", roll);
-                intent.putExtra("duration", duration);
-                startActivity(intent);
-                finish();
+               if(roll.size()>=3){
+                   Intent intent =new Intent(MainActivity.this, playerActivity.class);
+                   intent.putExtra("gdID", gdID);
+                   intent.putExtra("organiserID", organiserID);
+                   intent.putExtra("time", timeStamp);
+                   intent.putExtra("type", type);
+                   intent.putExtra("topic", topic);
+                   intent.putExtra("playerSet", roll);
+                   intent.putExtra("duration", duration);
+                   startActivity(intent);
+                   finish();
+               }
+               else{
+                   Snackbar.make(view,"Minimum 3 players required.", Snackbar.LENGTH_LONG).show();
+                   return;
+               }
 
             }
         });

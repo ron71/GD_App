@@ -130,95 +130,95 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
         String id = user_mail.substring(0,user_mail.indexOf("@"));
-
-        if(isNotAvailableInLocalDB()){
-            getUserFromFirebase(id);
-        }
-        else{
-
-            Log.e("DATA FLOW", "ALREADY PRESENT IN DB");
-            c.moveToFirst();
-            /*
-            * Render Informations on profile Activity
-            * */
-
-            String brnch = c.getString(3).toUpperCase();
-            type = c.getString(4);
-            int yr = c.getInt(5);
-
-            branch.setText(brnch);
-
-            switch (yr){
-                case 1:rb1.setSelected(true);break;
-                case 2:rb2.setSelected(true); break;
-                case 3:rb3.setSelected(true); break;
-                case 4:rb4.setSelected(true); break;
-            }
-
-
-            LinearLayout l=null;
-            if(type.equals("master")){
-                l = findViewById(R.id.member_des);
-            }else{
-                l = findViewById(R.id.memberList);
-            }
-            ViewGroup parent = (ViewGroup) l.getParent();
-            if (parent != null) {
-                parent.removeView(l);
-            }
-
-            String[] members = c.getString(6).split(",");
-            String acesscode = c.getString(7);
-            Log.e("accessCodeDB", acesscode);
-            for(int i=0; i< members.length; i++) {
-                if (members[i] != "") {
-                    if (i == 0) {
-
-                        m1.setText(members[i]);
-                        if (acesscode.charAt(i) == '1') {
-                            img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
-                            flag[i] = 1;
-                        }
-
-                    }
-                    if (i == 1) {
-                        m2.setText(members[i]);
-                        if (acesscode.charAt(i) == '1') {
-                            img2.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
-                            flag[i] = 1;
-                        }
-                    }
-                    if (i == 2) {
-                        m3.setText(members[i]);
-                        if (acesscode.charAt(i) == '1') {
-                            img3.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
-                            flag[i] = 1;
-                        }
-                    }
-                    if (i == 3) {
-                        m4.setText(members[i]);
-                        if (acesscode.charAt(i) == '1') {
-                            img4.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
-                            flag[i] = 1;
-                        }
-                    }
-                    if (i == 4) {
-                        m5.setText(members[i]);
-                        if (acesscode.charAt(i) == '1') {
-                            img5.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
-                            flag[i] = 1;
-                        }
-                    }
-                    if (i == 5) {
-                        m6.setText(members[i]);
-                        if (acesscode.charAt(i) == '1') {
-                            img6.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
-                            flag[i] = 1;
-                        }
-                    }
-                }
-            }
-        }
+        getUserFromFirebase(id);
+//        if(isNotAvailableInLocalDB()){
+//            getUserFromFirebase(id);
+//        }
+//        else{
+//
+//            Log.e("DATA FLOW", "ALREADY PRESENT IN DB");
+//            c.moveToFirst();
+//            /*
+//            * Render Informations on profile Activity
+//            * */
+//
+//            String brnch = c.getString(3).toUpperCase();
+//            type = c.getString(4);
+//            int yr = c.getInt(5);
+//
+//            branch.setText(brnch);
+//
+//            switch (yr){
+//                case 1:rb1.setSelected(true);break;
+//                case 2:rb2.setSelected(true); break;
+//                case 3:rb3.setSelected(true); break;
+//                case 4:rb4.setSelected(true); break;
+//            }
+//
+//
+//            LinearLayout l=null;
+//            if(type.equals("master")){
+//                l = findViewById(R.id.member_des);
+//            }else{
+//                l = findViewById(R.id.memberList);
+//            }
+//            ViewGroup parent = (ViewGroup) l.getParent();
+//            if (parent != null) {
+//                parent.removeView(l);
+//            }
+//
+//            String[] members = c.getString(6).split(",");
+//            String acesscode = c.getString(7);
+//            Log.e("accessCodeDB", acesscode);
+//            for(int i=0; i< members.length; i++) {
+//                if (members[i] != "") {
+//                    if (i == 0) {
+//
+//                        m1.setText(members[i]);
+//                        if (acesscode.charAt(i) == '1') {
+//                            img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+//                            flag[i] = 1;
+//                        }
+//
+//                    }
+//                    if (i == 1) {
+//                        m2.setText(members[i]);
+//                        if (acesscode.charAt(i) == '1') {
+//                            img2.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+//                            flag[i] = 1;
+//                        }
+//                    }
+//                    if (i == 2) {
+//                        m3.setText(members[i]);
+//                        if (acesscode.charAt(i) == '1') {
+//                            img3.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+//                            flag[i] = 1;
+//                        }
+//                    }
+//                    if (i == 3) {
+//                        m4.setText(members[i]);
+//                        if (acesscode.charAt(i) == '1') {
+//                            img4.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+//                            flag[i] = 1;
+//                        }
+//                    }
+//                    if (i == 4) {
+//                        m5.setText(members[i]);
+//                        if (acesscode.charAt(i) == '1') {
+//                            img5.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+//                            flag[i] = 1;
+//                        }
+//                    }
+//                    if (i == 5) {
+//                        m6.setText(members[i]);
+//                        if (acesscode.charAt(i) == '1') {
+//                            img6.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
+//                            flag[i] = 1;
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
     }
 
@@ -265,6 +265,34 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
        });
    }
 
+   void memberStatusUpdate(final String id, final int flag){
+        final DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(id);
+       documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+           @Override
+           public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+               if(task.isSuccessful()){
+                   DocumentSnapshot document = task.getResult();
+                   if(document!=null){
+                       Log.e("Document", document.toString());
+                       AppUser u = task.getResult().toObject(AppUser.class);
+                       if(u!=null){
+                           if(flag==0){
+                               u.setType("member");
+                               documentReference.set(u);
+                               Snackbar.make(getCurrentFocus(), id+" is now member.", Snackbar.LENGTH_SHORT).show();
+                           }
+                           else{
+                               u.setType("master");
+                               documentReference.set(u);
+                               Snackbar.make(getCurrentFocus(), id+" is now master.", Snackbar.LENGTH_SHORT).show();
+                           }
+                       }
+                   }
+               }
+           }
+       });
+   }
+
   void renderScreen(AppUser user){
       branch.setText(user.getBranch());
 //      Log.e("BRANCH", user.getBranch());
@@ -280,37 +308,62 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
           l = findViewById(R.id.member_des);
           int i=0;
           switch (user.getMembers().size()){
-              case 1: m1.setText(user.getMembers().get(0));break;
+              case 1: {
+                  m1.setText(user.getMembers().get(0));
+                  displayMemberStatus(user.getMembers().get(0),0,img1);
+                  break;
+              }
               case 2: {
                   m1.setText(user.getMembers().get(0));
+                  displayMemberStatus(user.getMembers().get(0),0,img1);
                   m2.setText(user.getMembers().get(1));
+                  displayMemberStatus(user.getMembers().get(1),1,img2);
                     break;
               }
               case 3:{
                   m1.setText(user.getMembers().get(0));
+                  displayMemberStatus(user.getMembers().get(0),0,img1);
                   m2.setText(user.getMembers().get(1));
+                  displayMemberStatus(user.getMembers().get(0),1,img1);
                   m3.setText(user.getMembers().get(2));
+                  displayMemberStatus(user.getMembers().get(3),2,img3);
                   break;
               }
               case 4 :{
 
                   m1.setText(user.getMembers().get(0));
+                  displayMemberStatus(user.getMembers().get(0),0,img1);
                   m2.setText(user.getMembers().get(1));
+                  displayMemberStatus(user.getMembers().get(1),1,img2);
                   m3.setText(user.getMembers().get(2));
+                  displayMemberStatus(user.getMembers().get(2),2,img3);
                   m4.setText(user.getMembers().get(3));
+                  displayMemberStatus(user.getMembers().get(3),3,img4);
                   break;
               }
               case 5:{
                   m1.setText(user.getMembers().get(0));
+                  displayMemberStatus(user.getMembers().get(0),0,img1);
                   m2.setText(user.getMembers().get(1));
+                  displayMemberStatus(user.getMembers().get(1),1,img2);
                   m3.setText(user.getMembers().get(2));
+                  displayMemberStatus(user.getMembers().get(2),2,img3);
                   m4.setText(user.getMembers().get(3));
+                  displayMemberStatus(user.getMembers().get(3),3,img4);
                   m5.setText(user.getMembers().get(4));
+                  displayMemberStatus(user.getMembers().get(4),4,img5);
+
                   break;
               }
               case 6:{
 
                   m1.setText(user.getMembers().get(0));
+                  displayMemberStatus(user.getMembers().get(0),0,img1);
+                  displayMemberStatus(user.getMembers().get(1),1,img2);
+                  displayMemberStatus(user.getMembers().get(2),2,img3);
+                  displayMemberStatus(user.getMembers().get(3),3,img4);
+                  displayMemberStatus(user.getMembers().get(4),4,img5);
+                  displayMemberStatus(user.getMembers().get(5),5,img6);
                   m2.setText(user.getMembers().get(1));
                   m3.setText(user.getMembers().get(2));
                   m4.setText(user.getMembers().get(3));
@@ -331,6 +384,51 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
       if (parent != null) {
           parent.removeView(l);
       }
+
+   }
+
+    void displayMemberStatus(final String id, final int index, ImageButton b){
+        final DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(id);
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()){
+                    DocumentSnapshot document = task.getResult();
+                    if(document!=null){
+                        Log.e("Document", document.toString());
+                        AppUser u = task.getResult().toObject(AppUser.class);
+                        if(u!=null){
+                                if(u.getType().equals("master")){
+                                    flag[index] = 1;
+                                    // TODO:
+                                    switch (index){
+                                        case 0: img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
+                                        case 1: img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
+                                        case 2: img3.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
+                                        case 3: img4.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
+                                        case 4: img5.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
+                                        case 5: img6.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
+                                    }
+
+                                }else {
+                                    flag[index] = 0;
+                                    // TODO:
+                                    switch (index){
+                                        case 0: img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp)); break;
+                                        case 1: img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp)); break;
+                                        case 2: img3.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp)); break;
+                                        case 3: img4.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp)); break;
+                                        case 4: img5.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp)); break;
+                                        case 5: img6.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp)); break;
+                                    }
+                                }
+                            }
+
+                        }
+
+                }
+            }
+        });
 
    }
 
@@ -357,11 +455,17 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         return;
                     }
                 }
-                if(findViewById(R.id.memberList).getVisibility()==View.INVISIBLE){
-                    type = "member";
+//                if(findViewById(R.id.member_des).getVisibility()==View.INVISIBLE){
+//                    type = "master";
+//                }else {
+//                    type="member";
+//                }
+                if(appuser!=null){
+                    type = appuser.getType();
                 }else {
-                    type="master";
+                    type="member";
                 }
+
                 mem.add(m1.getText().toString());
                 mem.add(m2.getText().toString());
                 mem.add(m3.getText().toString());
@@ -387,13 +491,19 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 if(flag[0]==1){
+                    //deselected to member
                     img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp));
                     flag[0]=0;
+
                 }
                 else{
                     img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
                     flag[0]=1;
                 }
+
+                memberStatusUpdate(m1.getText().toString(), flag[0]);
+
+
                 break;
             }
             case R.id.super_control_btn2:{
@@ -410,7 +520,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     img2.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
                     flag[1]=1;
                 }
-
+                memberStatusUpdate(m2.getText().toString(), flag[1]);
                 break;
             }
             case R.id.super_control_btn3:{
@@ -428,6 +538,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     flag[2]=1;
 
                 }
+                memberStatusUpdate(m3.getText().toString(), flag[2]);
                 break;
             }
             case R.id.super_control_btn4:{
@@ -444,6 +555,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     img4.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
                     flag[3]=1;
                 }
+                memberStatusUpdate(m4.getText().toString(), flag[3]);
                 break;
             }
             case R.id.super_control_btn5:{
@@ -460,6 +572,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     img5.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
                     flag[4]=1;
                 }
+                memberStatusUpdate(m5.getText().toString(), flag[4]);
                 break;
             }
             case R.id.super_control_btn6:{
@@ -472,10 +585,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     img6.setImageDrawable(getDrawable(R.drawable.ic_verified_user_black_24dp));
                     flag[5]=0;
                 }
+
                 else{
                     img6.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue));
                     flag[5]=1;
                 }
+                memberStatusUpdate(m6.getText().toString(), flag[5]);
                 break;
             }
         }

@@ -28,20 +28,20 @@ import in.ac.kiit.justtalk.models.Scores;
 
 public class ScoreBookActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView[] fluency = new TextView[6];
-    TextView[] body = new TextView[6];
-    TextView[] content = new TextView[6];
-    TextView[] team = new TextView[6];
-    TextView[] language = new TextView[6];
+    TextView[] fluency = new TextView[5];
+    TextView[] body = new TextView[5];
+    TextView[] content = new TextView[5];
+    TextView[] team = new TextView[5];
+    TextView[] language = new TextView[5];
 
     TextView profileNameTxt, profileRollNoTxt, branchTxt, yearTxt;
     ImageView playerAvatar;
 
-    int fluencyID[] = {R.id.fluency_zero,R.id.fluency_one,R.id.fluency_two,R.id.fluency_three,R.id.fluency_four,R.id.fluency_five};
-    int bodyID[] = {R.id.body_zero, R.id.body_one, R.id.body_two, R.id.body_three, R.id.body_four, R.id.body_five};
-    int contentID[] = {R.id.content_zero,R.id.content_one,R.id.content_two,R.id.content_three,R.id.content_four,R.id.content_five };
-    int teamID[] = {R.id.team_zero,R.id.team_one,R.id.team_two,R.id.team_three,R.id.team_four,R.id.team_five};
-    int langID[] = {R.id.lang_zero,R.id.lang_one,R.id.lang_two,R.id.lang_three,R.id.lang_four,R.id.lang_five,};
+    int fluencyID[] = {R.id.fluency_one,R.id.fluency_two,R.id.fluency_three,R.id.fluency_four,R.id.fluency_five};
+    int bodyID[] = { R.id.body_one, R.id.body_two, R.id.body_three, R.id.body_four, R.id.body_five};
+    int contentID[] = {R.id.content_one,R.id.content_two,R.id.content_three,R.id.content_four,R.id.content_five };
+    int teamID[] = {R.id.team_one,R.id.team_two,R.id.team_three,R.id.team_four,R.id.team_five};
+    int langID[] = {R.id.lang_one,R.id.lang_two,R.id.lang_three,R.id.lang_four,R.id.lang_five,};
 
     ArrayList<Scores> scores;
     int position;
@@ -56,7 +56,7 @@ public class ScoreBookActivity extends AppCompatActivity implements View.OnClick
         yearTxt = findViewById(R.id.playerYr);
         playerAvatar = findViewById(R.id.player_avatar);
 
-        for(int i=0; i<6; i++){
+        for(int i=0; i<5; i++){
             fluency[i] = findViewById(fluencyID[i]);
             fluency[i].setOnClickListener(this);
             body[i] = findViewById(bodyID[i]);
@@ -130,13 +130,7 @@ public class ScoreBookActivity extends AppCompatActivity implements View.OnClick
 
         setResult(1001,i);
         switch (view.getId()) {
-            case R.id.fluency_zero: {
-                scores.get(position).setFluency(0);
-                String code = position + "_" + "fluency" + "_" + 0;
-                i.putExtra("code", code);
-                finish();
-                break;
-            }
+
             case R.id.fluency_one: {
                 scores.get(position).setFluency(1);
                 String code = position + "_" + "fluency" + "_" + 1;
@@ -168,13 +162,6 @@ public class ScoreBookActivity extends AppCompatActivity implements View.OnClick
             case R.id.fluency_five: {
                 scores.get(position).setFluency(5);
                 String code = position + "_" + "fluency" + "_" + 5;
-                i.putExtra("code", code);
-                finish();
-                break;
-            }
-            case R.id.body_zero:{
-                scores.get(position).setBodyLanguage(0);
-                String code = position + "_" + "body" + "_" + 0;
                 i.putExtra("code", code);
                 finish();
                 break;
@@ -211,14 +198,6 @@ public class ScoreBookActivity extends AppCompatActivity implements View.OnClick
             case R.id.body_five:{
                 scores.get(position).setBodyLanguage(5);
                 String code = position + "_" + "body" + "_" + 5;
-                i.putExtra("code", code);
-                finish();
-                break;
-            }
-
-            case R.id.content_zero:{
-                scores.get(position).setContent(0);
-                String code = position + "_" +"content"+ "_" + 0;
                 i.putExtra("code", code);
                 finish();
                 break;
@@ -263,15 +242,6 @@ public class ScoreBookActivity extends AppCompatActivity implements View.OnClick
                 finish();
                 break;
             }
-            case R.id.team_zero:{
-                scores.get(position).setContent(0);
-                String code = position + "_" + "team" + "_" + 0;
-                i.putExtra("code", code);
-                finish();
-                break;
-            }
-
-
             case R.id.team_one:{
                 scores.get(position).setTeamWork(1);
                 String code = position + "_" + "team" + "_" + 1;
@@ -308,14 +278,6 @@ public class ScoreBookActivity extends AppCompatActivity implements View.OnClick
             case R.id.team_five:{
                 scores.get(position).setTeamWork(5);
                 String code = position + "_" + "team" + "_" + 5;
-                i.putExtra("code", code);
-                finish();
-                break;
-            }
-
-            case R.id.lang_zero:{
-                scores.get(position).setLanguage(0);
-                String code = position + "_" + "lang" + "_" + 2;
                 i.putExtra("code", code);
                 finish();
                 break;
@@ -364,10 +326,10 @@ public class ScoreBookActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-//    @Override
-//    public void finish() {
-//        setResult(1001, i);
-//        super.finish();
-//
-//    }
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        Snackbar.make(profileNameTxt, "Please mark the player.", Snackbar.LENGTH_LONG).show();
+
+    }
 }

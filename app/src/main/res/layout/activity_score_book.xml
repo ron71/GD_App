@@ -154,17 +154,7 @@
                         android:id="@+id/fluency_one"
                         android:background="#EF5330"
                         android:textSize="50sp"/>
-                    <TextView
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="@color/colorAccentTheme"
-                        android:textStyle="bold"
-                        android:id="@+id/fluency_zero"
-                        android:layout_weight="1"
-                        android:background="#C62828"
-                        android:textSize="50sp"/>
+
 
 
                 </LinearLayout>
@@ -256,17 +246,7 @@
                         android:id="@+id/content_one"
                         android:background="#EF5330"
                         android:textSize="50sp"/>
-                    <TextView
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="@color/colorAccentTheme"
-                        android:textStyle="bold"
-                        android:id="@+id/content_zero"
-                        android:layout_weight="1"
-                        android:background="#C62828"
-                        android:textSize="50sp"/>
+
 
 
                 </LinearLayout>
@@ -357,17 +337,7 @@
                         android:id="@+id/team_one"
                         android:background="#EF5330"
                         android:textSize="50sp"/>
-                    <TextView
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="@color/colorAccentTheme"
-                        android:textStyle="bold"
-                        android:id="@+id/team_zero"
-                        android:layout_weight="1"
-                        android:background="#C62828"
-                        android:textSize="50sp"/>
+
 
 
                 </LinearLayout>
@@ -460,17 +430,7 @@
                         android:id="@+id/body_one"
                         android:background="#EF5330"
                         android:textSize="50sp"/>
-                    <TextView
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="@color/colorAccentTheme"
-                        android:textStyle="bold"
-                        android:id="@+id/body_zero"
-                        android:layout_weight="1"
-                        android:background="#C62828"
-                        android:textSize="50sp"/>
+
 
 
                 </LinearLayout>
@@ -563,18 +523,6 @@
                         android:id="@+id/lang_one"
                         android:background="#EF5330"
                         android:textSize="50sp"/>
-                    <TextView
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="@color/colorAccentTheme"
-                        android:textStyle="bold"
-                        android:id="@+id/lang_zero"
-                        android:layout_weight="1"
-                        android:background="#C62828"
-                        android:textSize="50sp"/>
-
 
                 </LinearLayout>
             </LinearLayout>

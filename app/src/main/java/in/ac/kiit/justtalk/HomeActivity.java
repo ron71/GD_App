@@ -2,10 +2,12 @@ package in.ac.kiit.justtalk;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,12 +17,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
+
+import in.ac.kiit.justtalk.models.AppUser;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,6 +39,7 @@ public class HomeActivity extends AppCompatActivity
     RecyclerView recyclerView;
     ImageView avatar;
     TextView mail,name;
+    AppUser appuser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +47,35 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final String id = user.getEmail().substring(0,user.getEmail().indexOf("@"));
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               startActivity(new Intent(HomeActivity.this, InitiateGDActivity.class));
-               finish();
+
+                DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(id);
+                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful()){
+                            DocumentSnapshot document = task.getResult();
+                            if(document!=null){
+                                Log.e("Document", document.toString());
+                                appuser = task.getResult().toObject(AppUser.class);
+                                if(appuser.getType().equals("master")){
+
+                                    startActivity(new Intent(HomeActivity.this, InitiateGDActivity.class));
+                                    finish();
+                                }
+                                else {
+                                    Snackbar.make(getCurrentFocus(), "Sorry, you don't have master control to conduct a GD.",Snackbar.LENGTH_SHORT).show();
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                });
             }
         });
 

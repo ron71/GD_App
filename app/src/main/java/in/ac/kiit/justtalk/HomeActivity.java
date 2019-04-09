@@ -31,7 +31,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
+import in.ac.kiit.justtalk.adapters.GDSessionAdapter;
 import in.ac.kiit.justtalk.models.AppUser;
+import in.ac.kiit.justtalk.models.GDEvent;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +44,8 @@ public class HomeActivity extends AppCompatActivity
     ImageView avatar;
     TextView mail,name;
     AppUser appuser;
+    GDSessionAdapter adapter;
+    ArrayList<GDEvent> events = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,25 @@ public class HomeActivity extends AppCompatActivity
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final String id = user.getEmail().substring(0,user.getEmail().indexOf("@"));
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(id);
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()){
+                    DocumentSnapshot document = task.getResult();
+                    if(document!=null){
+                        Log.e("Document ROHAN", document.toString());
+                        appuser = task.getResult().toObject(AppUser.class);
+                        getEvents(appuser);
+
+                    }
+                }
+            }
+        });
+
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,12 +125,59 @@ public class HomeActivity extends AppCompatActivity
 //            name.setText(user.getDisplayName());
 //        }
 
+
+        //GDSessionAdapter adapter  = new GDSessionAdapter(getEvents(id),this);
+        //recyclerView.setAdapter(adapter);
+
+        if(events.size()==0){
+            Log.e("NO EVENTS", "0");
+        }
         recyclerView = findViewById(R.id.event_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        adapter= new GDSessionAdapter(events,HomeActivity.this);
+        recyclerView.setAdapter(adapter);
 
 
 
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
+    void getEvents(AppUser u){
+        //events = new ArrayList<>();
+        Log.e("getEvents()", "139");
+        if(u!=null){
+            Log.e("getEvents()", "141");
+            for(int i=0; i<u.getVents().size();i++){
+                DocumentReference documentReference = FirebaseFirestore.getInstance().collection("gd_events").document(appuser.getVents().get(i));
+                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        Log.e("getEvents()", "147");
+                        if(task.isSuccessful()){
+                            DocumentSnapshot document = task.getResult();
+                            if(document!=null){
+                                Log.e("getEvents()", "151");
+                                Log.e("Document EVENT", document.toString());
+                                GDEvent ev = task.getResult().toObject(GDEvent.class);
+                                events.add(ev);
+                                adapter.notifyDataSetChanged();
+                            }
+                        }
+                    }
+                });
+            }
+
+
+        }else{
+            Log.e("GDEVENTS", "NULL");
+        }
 
     }
 

@@ -32,6 +32,36 @@ public class GDSessionAdapter extends RecyclerView.Adapter<GDSessionAdapter.GDSe
         this.context = context;
 
     }
+    String findDate(String time){
+        String date = time.substring(time.length()-2, time.length());
+        String mon = time.substring(4,6);
+        String yr = time.substring(0,4);
+        return date+"-"+mon+"-"+yr;
+    }
+
+    String findTime(String time){
+        int hr = Integer.parseInt(time.substring(0,2));
+        int min = Integer.parseInt(time.substring(2,4));
+        int sec = Integer.parseInt(time.substring(4,6));
+        String s = "AM";
+        if(hr==0){
+            hr=12;
+        }
+        if(hr>12){
+            hr = hr-12;
+            s = "PM";
+        }
+        if(min<10){
+            if(sec<10){
+                return hr+":0"+min+":0"+sec+" "+s;
+            }else{
+                return hr+":0"+min+":"+sec+" "+s;
+            }
+        }else if(sec<10){
+            return hr+":"+min+":0"+sec+" "+s;
+        }
+        return hr+":"+min+":"+sec+" "+s;
+    }
 
     String getMarks(String id, int position){
 
@@ -54,10 +84,6 @@ public class GDSessionAdapter extends RecyclerView.Adapter<GDSessionAdapter.GDSe
         return holder;
     }
 
-    private void getDateTime(String timestamp){
-        String[] s = timestamp.split("_");
-
-    }
 
     @Override
     public void onBindViewHolder(@NonNull GDSessionHolder holder, int position) {
@@ -71,7 +97,8 @@ public class GDSessionAdapter extends RecyclerView.Adapter<GDSessionAdapter.GDSe
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String id = user.getEmail().substring(0,user.getEmail().indexOf("@"));
         marks.setText(getMarks(id, position)+"/25");
-
+        date.setText(findDate(events.get(position).getTimeStamp().split("_")[0]));
+        time.setText(findTime(events.get(position).getTimeStamp().split("_")[1]));
 
         card.setOnClickListener(new View.OnClickListener() {
             @Override

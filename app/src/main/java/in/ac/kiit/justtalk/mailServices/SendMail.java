@@ -186,7 +186,9 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
 
         String msg="REPORT CARD OF YOUR SESSION \n\n*******************************************************************\n"+
                 "ORGANISED BY : "+ name +"\n"+
-                "SESSION ID : "+ id +"\n*******************************************************************\n\n"+
+                "SESSION ID : "+ id +"\n"+
+                "TOPIC : "+event.getTopic().toUpperCase()+"\n"+
+                "LEVEL : "+event.getType().toUpperCase()+"\n*******************************************************************\n\n"+
                 "YOUR SCORE : \n\n" +
                 "Fluency : "+f+"\n"+
                 "\t\t"+fluency+"\n"+

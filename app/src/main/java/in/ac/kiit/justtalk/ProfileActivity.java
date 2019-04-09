@@ -478,6 +478,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                 Log.e("Type", type);
                 AppUser user = new AppUser(user_mail.substring(0,user_mail.indexOf("@")),user_mail,mem,user_name, year, type,brnch.toUpperCase(), url);
+                user.setVents(appuser.getVents());
+                user.setVentsConducted(appuser.getVentsConducted());
                 addUserInFireBase(user);
                 saveToDatabase(user, flag);
                 startActivity(new Intent(this,HomeActivity.class));

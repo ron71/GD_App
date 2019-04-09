@@ -112,22 +112,19 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
 
-        avatar = findViewById(R.id.profile_image);
-        mail = findViewById(R.id.user_mail);
-        name = findViewById(R.id.user_name);
-//
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        if(user!=null) {
-//
-//            Picasso.with(HomeActivity.this).load(user.getPhotoUrl()).into(avatar);
-//            mail.setText(user.getEmail());
-//            name.setText(user.getDisplayName());
-//        }
+        avatar = headerView.findViewById(R.id.profile_image);
+        mail = headerView.findViewById(R.id.user_mail);
+        name = headerView.findViewById(R.id.user_name);
 
+        if(user!=null) {
 
-        //GDSessionAdapter adapter  = new GDSessionAdapter(getEvents(id),this);
-        //recyclerView.setAdapter(adapter);
+            Picasso.with(HomeActivity.this).load(user.getPhotoUrl()).into(avatar);
+            mail.setText(user.getEmail());
+            name.setText(user.getDisplayName());
+        }
+
 
         if(events.size()==0){
             Log.e("NO EVENTS", "0");

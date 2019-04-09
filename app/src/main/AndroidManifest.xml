@@ -23,7 +23,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
-            android:label="Your GD Sessions"
+            android:label="Your GD history"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" ></activity>
         <activity android:name=".ProfileActivity"
@@ -31,7 +31,7 @@
         <activity
             android:name=".PromptingErrorActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="OOPS!.."
+            android:label="Error 404"
             android:theme="@style/FullscreenTheme"
             android:screenOrientation="portrait" />
         <activity android:name=".LoginActivity"

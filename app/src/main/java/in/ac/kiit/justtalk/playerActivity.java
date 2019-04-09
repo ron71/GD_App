@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,7 +15,9 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.common.base.MoreObjects;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
@@ -155,11 +158,13 @@ public class playerActivity extends AppCompatActivity {
        builder = new AlertDialog.Builder(playerActivity.this);
         builder.setIcon(R.drawable.ic_cloud_upload_black_24dp)
                 .setTitle("Want to save it on cloud?")
-                .setMessage("Press CANCEL, f you want to have continue evaluating.")
+                .setMessage("Press CANCEL, if you want to continue evaluating.")
                 .setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         firestore.collection("gd_events").document(event.getGdID()).set(event);
+                        Toast.makeText(playerActivity.this, "SAVED", Toast.LENGTH_LONG).show();
+
 
                     }
                 })

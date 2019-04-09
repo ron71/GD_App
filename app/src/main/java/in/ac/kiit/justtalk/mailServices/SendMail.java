@@ -4,6 +4,7 @@ package in.ac.kiit.justtalk.mailServices;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -27,6 +28,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import in.ac.kiit.justtalk.HomeActivity;
 import in.ac.kiit.justtalk.models.AppUser;
 import in.ac.kiit.justtalk.models.GDEvent;
 import in.ac.kiit.justtalk.models.Scores;
@@ -200,7 +202,8 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
                 "\t\t"+content+"\n"+
                 "Team Work : "+t+"\n"+
                 "\t\t"+teamwork+"\n\n"+
-                "Total Score : "+(f+l+b+c+t)+"/25";
+                "Total Score : "+(f+l+b+c+t)+"/25\n\n"+
+                "ALL THE BEST!\nRegards,\nKIIT GD CLUB\n";
         return msg;
     }
 
@@ -229,7 +232,8 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
         progressDialog.dismiss();
         //Showing a success message
         Toast.makeText(context,"Message Sent", Toast.LENGTH_LONG).show();
-        ((Activity)context).finish();
+        context.startActivity(new Intent(context, HomeActivity.class));
+        ((Activity)context).finishAffinity();
     }
 
 

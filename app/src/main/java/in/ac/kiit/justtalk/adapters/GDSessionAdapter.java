@@ -86,7 +86,7 @@ public class GDSessionAdapter extends RecyclerView.Adapter<GDSessionAdapter.GDSe
 
 
     @Override
-    public void onBindViewHolder(@NonNull GDSessionHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GDSessionHolder holder, final int position) {
         TextView sno = holder.sno;
         TextView marks=holder.marks;
         TextView date=holder.date;
@@ -103,7 +103,9 @@ public class GDSessionAdapter extends RecyclerView.Adapter<GDSessionAdapter.GDSe
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, Report.class));
+                Intent i = new Intent(context, Report.class);
+                i.putExtra("event", events.get(position));
+                context.startActivity(i);
             }
         });
 

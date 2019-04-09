@@ -1,9 +1,464 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryTheme"
+    android:orientation="vertical"
     tools:context=".Report">
 
-</android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:translationZ="20dp"
+        android:id="@+id/event_card"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:backgroundTint="@color/backgroundDark"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="120dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/session_no"
+                    android:textColor="#FBC02D"
+                    android:text="SESSION ID : "
+                    android:textStyle="bold"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/session_id"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="italic"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="15sp"
+                    android:text=""
+                    android:layout_gravity="center"/>
+
+
+
+            </android.support.v7.widget.LinearLayoutCompat>
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_marginVertical="10dp"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:paddingHorizontal="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_date_range_black_24dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/event_date"
+                        android:textColor="@color/colorAccent"
+                        android:layout_gravity="center"
+                        android:textStyle="italic"
+                        android:text="xx-xx-xxxx"/>
+                </android.support.v7.widget.LinearLayoutCompat>
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <ImageView
+                    android:paddingHorizontal="10dp"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_access_time_black_24dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/event_time"
+                    android:textStyle="italic"
+                    android:layout_gravity="center"
+                    android:text="HH:MM PM"
+                    android:textColor="@color/colorAccent"/>
+            </android.support.v7.widget.LinearLayoutCompat>
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_timer_black_24dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/session_dur"
+                    android:textStyle="italic"
+                    android:layout_gravity="center"
+                    android:text="10MIN"
+                    android:textColor="@color/colorAccent"/>
+            </android.support.v7.widget.LinearLayoutCompat>
+
+            </android.support.v7.widget.LinearLayoutCompat>
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:text="TOPIC :"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/session_topic"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="italic"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="15sp"
+                    android:text="Never Give UP!"
+                    android:layout_gravity="center"/>
+
+
+            </android.support.v7.widget.LinearLayoutCompat>
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"
+                    android:text="CONDUCTED BY :"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/session_cond"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="italic"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="15sp"
+                    android:text=""
+                    android:layout_gravity="center"/>
+
+
+            </android.support.v7.widget.LinearLayoutCompat>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:translationZ="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:backgroundTint="@color/backgroundDark"
+        android:layout_gravity="center"
+        app:cardCornerRadius="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="REPORT"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="#FBC02D"
+                />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="5dp">
+                   <LinearLayout
+                       android:layout_width="150dp"
+                       android:layout_height="match_parent"
+                       android:orientation="vertical"
+                       android:layout_gravity="center">
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:textColor="#4CA"
+                           android:gravity="center"
+                           android:text="Fluency :"
+                           android:paddingHorizontal="10dp"
+                           android:textSize="22dp"
+                           android:textStyle="bold"
+                           android:layout_gravity="center"/>
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:id="@+id/session_fluency_marks"
+                           android:gravity="center"
+                           android:layout_height="wrap_content"
+                           android:textColor="@color/colorAccent"
+                           android:textStyle="italic|bold"
+                           android:paddingHorizontal="10dp"
+                           android:textSize="30sp"
+                           android:text="4/5"
+                           android:layout_gravity="center"/>
+                   </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fluency_comment"
+                        android:layout_gravity="center"
+                        android:gravity="left"
+                        android:textStyle="italic"
+                        android:textColor="#4CA"
+                        android:text=""/>
+
+                </android.support.v7.widget.LinearLayoutCompat>
+                    <android.support.v7.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="5dp">
+                        <LinearLayout
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#4CA"
+                                android:gravity="center"
+                                android:text="Content :"
+                                android:paddingHorizontal="10dp"
+                                android:textSize="22dp"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:id="@+id/session_content_marks"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorAccent"
+                                android:textStyle="italic|bold"
+                                android:paddingHorizontal="10dp"
+                                android:textSize="30sp"
+                                android:text="4/5"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/content_comment"
+                            android:layout_gravity="center"
+                            android:gravity="left"
+                            android:textStyle="italic"
+                            android:textColor="#4CA"
+                            android:text=""/>
+
+                    </android.support.v7.widget.LinearLayoutCompat>
+                    <android.support.v7.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp">
+                        <LinearLayout
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#4CA"
+                                android:gravity="center"
+                                android:text="Team Work :"
+                                android:paddingHorizontal="10dp"
+                                android:textSize="22dp"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:id="@+id/session_team_marks"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorAccent"
+                                android:textStyle="italic|bold"
+                                android:paddingHorizontal="10dp"
+                                android:textSize="30sp"
+                                android:text="4/5"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/team_comment"
+                            android:layout_gravity="center"
+                            android:gravity="left"
+                            android:textStyle="italic"
+                            android:textColor="#4CA"
+                            android:text=""/>
+
+                    </android.support.v7.widget.LinearLayoutCompat>
+                    <android.support.v7.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="5dp">
+                        <LinearLayout
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#4CA"
+                                android:gravity="center"
+                                android:text="Body Lang. :"
+                                android:paddingHorizontal="10dp"
+                                android:textSize="22dp"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:id="@+id/session_body_marks"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorAccent"
+                                android:textStyle="italic|bold"
+                                android:paddingHorizontal="10dp"
+                                android:textSize="30sp"
+                                android:text="4/5"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/body_comment"
+                            android:layout_gravity="center"
+                            android:gravity="left"
+                            android:textStyle="italic"
+                            android:textColor="#4CA"
+                            android:text=""/>
+
+                    </android.support.v7.widget.LinearLayoutCompat>
+                    <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                        android:layout_weight="1"
+                    android:layout_marginTop="5dp">
+                    <LinearLayout
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#4CA"
+                            android:gravity="center"
+                            android:text="Language :"
+                            android:paddingHorizontal="10dp"
+                            android:textSize="22dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:id="@+id/session_lang_marks"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="italic|bold"
+                            android:paddingHorizontal="10dp"
+                            android:textSize="30sp"
+                            android:text="4/5"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lang_comment"
+                        android:layout_gravity="center"
+                        android:gravity="left"
+                        android:textStyle="italic"
+                        android:textColor="#4CA"
+                        android:text=""/>
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+            </ScrollView>
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/skyblue"
+                    android:gravity="center"
+                    android:text="SCORE :"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/session_total"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="italic|bold"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="35sp"
+                    android:text=""
+                    android:layout_gravity="center"/>
+            </android.support.v7.widget.LinearLayoutCompat>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

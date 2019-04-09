@@ -1,10 +1,11 @@
 package in.ac.kiit.justtalk.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GDEvent {
+public class GDEvent implements Serializable {
     String gdID;
     String organiserID;
     String timeStamp;

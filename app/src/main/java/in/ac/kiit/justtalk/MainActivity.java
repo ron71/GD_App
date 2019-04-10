@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 roll =trimPlayers(roll);
 
                 for(int i=0;i<roll.size(); i++){
-                    if(roll.get(i).length()!=7){
+                    if(roll.get(i).length()==7){
                         String s = roll.get(i).substring(0,2);
                         if(!(s.equals("16")||s.equals("15")||s.equals("20")||s.equals("18")||s.equals("19")))
                         {
@@ -145,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
                             Snackbar.make(view,"Please provide valid roll number.", Snackbar.LENGTH_LONG).show();
                             return;
                         }
+                    }else{
+                        Snackbar.make(view,"Please provide valid roll numbers.", Snackbar.LENGTH_LONG).show();
+                        return;
                     }
                 }
 

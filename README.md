@@ -22,7 +22,10 @@ Following are some screenshots of the App.
 
 <table>
 <tr>
-<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/Screenshot_2019-04-10-03-53-26-852_in.ac.kiit.justtalk.png">
+<td>
+<img src="Screenshot_2019-04-10-14-11-31-019_in.ac.kiit.justtalk.png"></td>
+<td>
+<img src="https://github.com/ron71/GD_App/blob/master/screenshots/Screenshot_2019-04-10-03-53-26-852_in.ac.kiit.justtalk.png">
   <td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/Screenshot_2019-04-10-03-48-34-590_in.ac.kiit.justtalk.png"></td>
   <td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/Screenshot_2019-04-10-03-50-38-317_in.ac.kiit.justtalk.png"></td>
   

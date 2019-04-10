@@ -25,9 +25,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="100dp"
-            android:layout_marginVertical="150dp">
+            android:layout_height="wrap_content">
 
             <com.google.android.gms.common.SignInButton
                 android:layout_width="wrap_content"

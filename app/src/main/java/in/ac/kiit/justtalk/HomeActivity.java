@@ -1,6 +1,14 @@
 package in.ac.kiit.justtalk;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +16,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,10 +26,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -46,14 +55,22 @@ public class HomeActivity extends AppCompatActivity
     AppUser appuser;
     GDSessionAdapter adapter;
     ArrayList<GDEvent> events = new ArrayList<>();
+    FirebaseUser user;
+    int exit=1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (ConnectivityHelper.isConnectedToNetwork(this)) {
+            //Show the connected screen
+            setContentView(R.layout.activity_home);
+        }
         setContentView(R.layout.activity_home);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         final String id = user.getEmail().substring(0,user.getEmail().indexOf("@"));
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -78,6 +95,7 @@ public class HomeActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                exit=1;
 
                 DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(id);
                 documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -143,6 +161,7 @@ public class HomeActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
+        exit=1;
         adapter.notifyDataSetChanged();
     }
 
@@ -182,57 +201,50 @@ public class HomeActivity extends AppCompatActivity
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
+            exit=0;
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if(exit==2) {
+                super.onBackPressed();
+                finishAffinity();
+            }
+            else{
+                exit++;
+                Toast.makeText(HomeActivity.this, "Touch BACK again to exit.", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_about_us) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        exit=0;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if(id==R.id.nav_profile){
             startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
 
         }
+        else if (id == R.id.about_us) {
+            Dialog d = new Dialog(HomeActivity.this);
+            d.setContentView(R.layout.abou_app_layout);
+            d.setCancelable(true);
+            d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            d.show();
 
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
+        } else if (id == R.id.nav_send) {
+
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:"));
+            intent.putExtra(Intent.EXTRA_EMAIL, "gdclubkiit@gmail.com");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Query/Suggestion - "+user.getEmail().substring(0, user.getEmail().indexOf("@")));
+            intent.putExtra(Intent.EXTRA_TEXT, "Mail on : gdclubkiit@gmail.com\nType your content here and select any one query or suggestion in subject and omit the other one.");
+
+            startActivity(Intent.createChooser(intent, "Send email..."));
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

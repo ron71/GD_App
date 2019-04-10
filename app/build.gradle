@@ -42,5 +42,8 @@ dependencies {
     implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')
     implementation files('libs/mail.jar')
+
+    //For gif diailog box
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
 }
 apply plugin: 'com.google.gms.google-services'

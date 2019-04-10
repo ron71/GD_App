@@ -30,6 +30,13 @@ public class InitiateGDActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!ConnectivityHelper.isConnectedToNetwork(this)) {
+            Intent i = new Intent(this, NoInternetAcitivty.class);
+            i.putExtra("status", 2);
+            startActivity(i);
+            finishAffinity();
+
+        }
         setContentView(R.layout.activity_initiate_gd);
 
         topic_edt = findViewById(R.id.topic_edt);

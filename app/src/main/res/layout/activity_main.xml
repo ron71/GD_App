@@ -177,7 +177,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/abril_fatface"
                     android:gravity="center"
-                    android:text="PLAYER 5 :"
+                    android:text="PLAYER 6 :"
                     android:textSize="20dp" />
 
                 <EditText

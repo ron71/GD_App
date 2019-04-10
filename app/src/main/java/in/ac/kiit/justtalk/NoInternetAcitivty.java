@@ -1,33 +1,29 @@
 package in.ac.kiit.justtalk;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
-public class PromptingErrorActivity extends AppCompatActivity {
-
+public class NoInternetAcitivty extends AppCompatActivity {
+    int status = 0;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prompting_error);
+        setContentView(R.layout.activity_no_internet_acitivty);
         hideNavigationBar();
 
-
+        Intent i = getIntent();
+        status = i.getExtras().getInt("status");
 
     }
 
     public void exitApp(View view) {
-
+        if(status==1){
+            startActivity(new Intent(NoInternetAcitivty.this, ProfileActivity.class));
+        }else if(status==2){
+            startActivity(new Intent(NoInternetAcitivty.this, HomeActivity.class));
+        }
         finishAffinity();
     }
 

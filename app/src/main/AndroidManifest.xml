@@ -10,48 +10,57 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/gdapp"
+        android:icon="@drawable/gdclub_ldpi"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/gdclub_ldpi"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Report"
-            android:screenOrientation="portrait" ></activity>
-        <activity android:name=".ScoreBookActivity"
+        <activity android:name=".NoInternetAcitivty"></activity>
+        <activity
+            android:name=".Report"
             android:screenOrientation="portrait" />
-        <activity android:name=".InitiateGDActivity"
+        <activity
+            android:name=".ScoreBookActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InitiateGDActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
             android:label="Your GD history"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" ></activity>
-        <activity android:name=".ProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ProfileActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PromptingErrorActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Error 404"
-            android:theme="@style/FullscreenTheme"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".LoginActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".SplashScreen"
-            android:screenOrientation="portrait" >
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".playerActivity"
+        <activity
+            android:name=".playerActivity"
             android:screenOrientation="portrait" />
     </application>
 

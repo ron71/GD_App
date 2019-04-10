@@ -58,11 +58,19 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     String year = "";
     String type;
     int flag[] = new int[6];
+    boolean isNewUser = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!ConnectivityHelper.isConnectedToNetwork(this)) {
+            Intent i = new Intent(this, NoInternetAcitivty.class);
+            i.putExtra("status", 1);
+            startActivity(i);
+            finishAffinity();
+
+        }
         setContentView(R.layout.activity_profile);
         name = findViewById(R.id.profile_name);
         mail = findViewById(R.id.profile_mail);
@@ -246,6 +254,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         Log.e("Document", document.toString());
                       appuser = task.getResult().toObject(AppUser.class);
                       if(appuser==null){
+                          isNewUser=true;
                           Snackbar.make(name,"WELCOME TO GD-CLUB!", Snackbar.LENGTH_LONG).show();
                           LinearLayout l = findViewById(R.id.memberList);
 
@@ -297,10 +306,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
       branch.setText(user.getBranch());
 //      Log.e("BRANCH", user.getBranch());
       switch (user.getYear()){
-          case "1": rb1.setSelected(true); break;
-          case "2": rb2.setSelected(true); break;
-          case "3": rb3.setSelected(true); break;
-          case "4": rb4.setSelected(true); break;
+          case "1": rb1.setEnabled(true); break;
+          case "2": rb2.setEnabled(true); break;
+          case "3": rb3.setEnabled(true); break;
+          case "4": rb4.setEnabled(true); break;
       }
 
       LinearLayout l=null;
@@ -324,9 +333,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                   m1.setText(user.getMembers().get(0));
                   displayMemberStatus(user.getMembers().get(0),0,img1);
                   m2.setText(user.getMembers().get(1));
-                  displayMemberStatus(user.getMembers().get(0),1,img1);
+                  displayMemberStatus(user.getMembers().get(1),1,img2);
                   m3.setText(user.getMembers().get(2));
-                  displayMemberStatus(user.getMembers().get(3),2,img3);
+                  displayMemberStatus(user.getMembers().get(2),2,img3);
                   break;
               }
               case 4 :{
@@ -399,11 +408,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         AppUser u = task.getResult().toObject(AppUser.class);
                         if(u!=null){
                                 if(u.getType().equals("master")){
+                                    Log.e(""+index, "Master");
                                     flag[index] = 1;
                                     // TODO:
                                     switch (index){
                                         case 0: img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
-                                        case 1: img1.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
+                                        case 1: img2.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
                                         case 2: img3.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
                                         case 3: img4.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
                                         case 4: img5.setImageDrawable(getDrawable(R.drawable.ic_verified_user_sky_blue)); break;
@@ -411,6 +421,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                     }
 
                                 }else {
+                                    Log.e(""+u.getUserID(), "Member");
                                     flag[index] = 0;
                                     // TODO:
                                     switch (index){
@@ -429,6 +440,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 }
             }
         });
+        Log.e(":CODE:",getAcessCode(flag));
 
    }
 
@@ -455,6 +467,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         return;
                     }
                 }
+                Log.e(":CODE:",getAcessCode(flag));
 //                if(findViewById(R.id.member_des).getVisibility()==View.INVISIBLE){
 //                    type = "master";
 //                }else {
@@ -478,8 +491,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                 Log.e("Type", type);
                 AppUser user = new AppUser(user_mail.substring(0,user_mail.indexOf("@")),user_mail,mem,user_name, year, type,brnch.toUpperCase(), url);
-                user.setVents(appuser.getVents());
-                user.setVentsConducted(appuser.getVentsConducted());
+               if(isNewUser==false){
+                   user.setVents(appuser.getVents());
+                   user.setVentsConducted(appuser.getVentsConducted());
+               }
                 addUserInFireBase(user);
                 saveToDatabase(user, flag);
                 startActivity(new Intent(this,HomeActivity.class));
@@ -629,9 +644,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     private String getAcessCode(int[] flag){
         String acessCode="";
+
         for(int i=0; i<flag.length; i++){
             acessCode+=flag[i]+"";
         }
+        Log.e(":CODE:",acessCode);
         return acessCode;
     }
 

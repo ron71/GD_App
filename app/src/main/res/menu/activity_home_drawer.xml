@@ -14,13 +14,13 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/about_us"
+                android:icon="@drawable/ic_info_black_24dp"
+                android:title="What's GD club?" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Any query or suggestion? Mail us." />
         </menu>
     </item>
 

@@ -22,15 +22,33 @@ Following are some screenshots of the App.
 
 <table>
 <tr>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/Screenshot_2019-04-10-14-11-31-019_in.ac.kiit.justtalk.png"></td>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/Screenshot_2019-04-10-03-53-26-852_in.ac.kiit.justtalk.png">
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/Screenshot_2019-04-10-03-48-34-590_in.ac.kiit.justtalk.png"></td>
-	  
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/splashscreen.png"></td>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/login_page.png">
+</tr>
+<tr>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/about.png"></td>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/profile.png">
 </tr>
 
 <tr>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/Screenshot_2019-04-10-03-50-38-317_in.ac.kiit.justtalk.png"></td>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/Screenshot_2019-04-10-03-51-47-262_in.ac.kiit.justtalk.png"></td>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/Screenshot_2019-04-10-03-53-44-921_in.ac.kiit.justtalk.png"></td>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/history.png"></td>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/session_report.png">
 </tr>
+
+<tr>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/gdstart.png"></td>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/talkers.png">
+</tr>
+
+<tr>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/liveSession.png"></td>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/markingpage.png">
+</tr>
+
+<tr>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/authenticatioError.png"></td>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/connectionError.png">
+</tr>
+
+
 </table>

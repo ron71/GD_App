@@ -64,6 +64,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!ConnectivityHelper.isConnectedToNetwork(this)) {
+            Intent i = new Intent(this, NoInternetAcitivty.class);
+            i.putExtra("status", 0);
+            startActivity(i);
+            finishAffinity();
+
+        }
         setContentView(R.layout.activity_login);
         signInButton = findViewById(R.id.signInBtn);
         mAuth = FirebaseAuth.getInstance();
@@ -75,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 }
                 else{
-                    Toast.makeText(LoginActivity.this, "No Signed", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(LoginActivity.this, "No Signed", Toast.LENGTH_LONG).show();
                 }
             }
         };
@@ -142,6 +149,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             }
             else{
                 Log.e("Erorr", "onActivityResult");
+                startActivity(new Intent(LoginActivity.this, PromptingErrorActivity.class));
+                finish();
             }
         }
     }

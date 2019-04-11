@@ -36,6 +36,7 @@
             android:onClick="exitApp"
             android:text="Try Again"
             android:layout_gravity="center"
+            android:id="@+id/exitBtn"
             android:layout_weight="1"
             android:layout_marginVertical="30dp"
             android:backgroundTint="#EF5350"

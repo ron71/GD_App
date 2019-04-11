@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class NoInternetAcitivty extends AppCompatActivity {
     int status = 0;
@@ -15,6 +16,9 @@ public class NoInternetAcitivty extends AppCompatActivity {
 
         Intent i = getIntent();
         status = i.getExtras().getInt("status");
+        if(status==0){
+            ((Button)findViewById(R.id.exitBtn)).setText("EXIT");
+        }
 
     }
 

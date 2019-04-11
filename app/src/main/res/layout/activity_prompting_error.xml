@@ -28,7 +28,7 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="40dp"
             android:fontFamily="monospace"
-            android:text="Can't you understand that you are instructed to sign in using your KIIT mail ID. "
+            android:text="Can't you understand that you are instructed to sign in using your KIIT mail ID. Kindly re-install the app. "
             android:textAlignment="center" />
         <Button
             android:layout_height="wrap_content"

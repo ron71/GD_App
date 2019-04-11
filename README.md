@@ -27,12 +27,12 @@ Following are some screenshots of the App.
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/about.png"></td>
 	
 </tr>
-<tr><td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/profile.png"></td>
+
+<tr>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/profile.png"></td>
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/history.png"></td>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/session_report.png"></td>
-	
-	
-	</tr>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/session_report.png"></td>	
+</tr>
 
 <tr>
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/gdstart.png"></td>
@@ -41,9 +41,9 @@ Following are some screenshots of the App.
 </tr>
 
 <tr>
-<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/markingpage.png">
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/markingpage.png"></td>
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/authenticatioError.png"></td>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/connectionError.png">
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/connectionError.png"></td>
 </tr>
 
 

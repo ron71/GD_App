@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 for(int i=0;i<roll.size(); i++){
                     if(roll.get(i).length()==7){
                         String s = roll.get(i).substring(0,2);
-                        if(!(s.equals("16")||s.equals("15")||s.equals("20")||s.equals("18")||s.equals("19")))
+                        if(!(s.equals("16")||s.equals("15")||s.equals("20")||s.equals("18")||s.equals("19")||s.equals("17")))
                         {
                             roll.remove(i);
                             Snackbar.make(view,"Please provide valid roll number.", Snackbar.LENGTH_LONG).show();

@@ -495,6 +495,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                    user.setVents(appuser.getVents());
                    user.setVentsConducted(appuser.getVentsConducted());
                }
+                if(mem.contains(appuser.getUserID())){
+                    Snackbar.make(getCurrentFocus(), "Don't enter your own ID.", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
                 addUserInFireBase(user);
                 saveToDatabase(user, flag);
                 startActivity(new Intent(this,HomeActivity.class));

@@ -81,6 +81,7 @@
                        android:layout_height="wrap_content"
                        android:id="@+id/topic_edt"
                        android:textAlignment="center"
+                       android:inputType="text"
                        android:hint="Politics,Current Affairs, etc"/>
                </LinearLayout>
 

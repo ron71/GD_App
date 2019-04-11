@@ -115,7 +115,7 @@ public class playerActivity extends AppCompatActivity {
                 builder = new AlertDialog.Builder(playerActivity.this);
                 builder.setIcon(R.drawable.ic_mail_black_24dp)
                         .setTitle("Want to send the reports via mail?")
-                        .setMessage("Press CANCEL, f you want to have continue evaluating.")
+                        .setMessage("Press CANCEL, if you want to have continue evaluating.")
                         .setPositiveButton("Yes, SEND", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {

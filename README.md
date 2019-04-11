@@ -23,29 +23,25 @@ Following are some screenshots of the App.
 <table>
 <tr>
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/splashscreen.png"></td>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/login_page.png">
-</tr>
-<tr>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/login_page.png"></td>
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/about.png"></td>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/profile.png">
+	
 </tr>
-
-<tr>
+<tr><td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/profile.png"></td>
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/history.png"></td>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/session_report.png">
-</tr>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/session_report.png"></td>
+	
+	
+	</tr>
 
 <tr>
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/gdstart.png"></td>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/talkers.png">
-</tr>
-
-<tr>
+	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/talkers.png"></td>
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/liveSession.png"></td>
-	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/markingpage.png">
 </tr>
 
 <tr>
+<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/markingpage.png">
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/authenticatioError.png"></td>
 	<td><img src="https://github.com/ron71/GD_App/blob/master/screenshots/connectionError.png">
 </tr>

@@ -71,6 +71,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             finishAffinity();
 
         }
+
         setContentView(R.layout.activity_login);
         signInButton = findViewById(R.id.signInBtn);
         mAuth = FirebaseAuth.getInstance();
@@ -78,10 +79,18 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()!=null){
-                    //Intent navigation
-                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+
+                    if(firebaseAuth.getCurrentUser().getEmail().contains("@kiit.ac.in")) {
+
+                        //Intent navigation
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    }
+                    else{
+                        mAuth.signOut();
+                    }
                 }
                 else{
+
                    // Toast.makeText(LoginActivity.this, "No Signed", Toast.LENGTH_LONG).show();
                 }
             }
@@ -112,6 +121,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         if(mAuth.getCurrentUser()!=null){
             startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+        }else{
+            mGoogleSignInClient.signOut();
+            mGoogleSignInClient.revokeAccess();
         }
 
     }
@@ -122,17 +134,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
-//            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-//            try {
-//                // Google Sign In was successful, authenticate with Firebase
-//                GoogleSignInAccount account = task.getResult(ApiException.class);
-//                //account will have all the authentication information.
-//                firebaseAuthWithGoogle(account);
-//            } catch (ApiException e) {
-//                // Google Sign In failed, update UI appropriately
-//                Log.w(TAG, "Google sign in failed", e);
-//                // ...
-//            }
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             Log.e("data",result.getStatus().toString());
             if(result.isSuccess()){
@@ -140,8 +141,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 String email = account.getEmail();
                 Log.e("Email", email);
                 if(!email.contains("@kiit.ac.in")){
-                    startActivity(new Intent(LoginActivity.this, PromptingErrorActivity.class));
-                    finish();
+                    mGoogleSignInClient.signOut();
+                    mGoogleSignInClient.revokeAccess();
+                    Snackbar.make(signInButton, "PLease sign in using KIIT EMAIL ID.", Snackbar.LENGTH_LONG).show();
+                    signIn();
 
                 }else {
                     authWithGoogle(account);
@@ -155,26 +158,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         }
     }
 
-//    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-//
-//        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-//        mAuth.signInWithCredential(credential)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            // Sign in success, update UI with the signed-in user's information
-//                            Log.d(TAG, "signInWithCredential:success");
-//                            FirebaseUser user = mAuth.getCurrentUser();
-//                            // updateUI(user); // This line updates the users screen if authenticated sucessfully.
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//                            Log.w(TAG, "signInWithCredential:failure", task.getException());
-//                            Snackbar.make(findViewById(View.generateViewId()), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
-//                            // updateUI(null);
-//                        }
-//                    }
-//                });
+
 
     private void authWithGoogle(final GoogleSignInAccount account) {
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(),null);
@@ -197,8 +181,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             }
         });
     }
-//
-//    }
 
 
 

@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
@@ -31,6 +33,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -136,6 +140,9 @@ public class HomeActivity extends AppCompatActivity
         mail = headerView.findViewById(R.id.user_mail);
         name = headerView.findViewById(R.id.user_name);
 
+
+
+
         if(user!=null) {
 
             Picasso.with(HomeActivity.this).load(user.getPhotoUrl()).into(avatar);
@@ -156,6 +163,32 @@ public class HomeActivity extends AppCompatActivity
 
 
 
+    }
+
+
+    private void logOut(){
+
+            try{
+                SQLiteDatabase db = openOrCreateDatabase("gddb", MODE_PRIVATE,null);
+                db.execSQL("DELETE FROM USER");
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+
+            }
+        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+
+        finishAffinity();
+
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+            logOut();
+        }
     }
 
     @Override
@@ -244,6 +277,10 @@ public class HomeActivity extends AppCompatActivity
             intent.putExtra(Intent.EXTRA_TEXT, "Mail on : gdclubkiit@gmail.com\nType your content here and select any one query or suggestion in subject and omit the other one.");
 
             startActivity(Intent.createChooser(intent, "Send email..."));
+        }
+        else if(id==R.id.log_out){
+            FirebaseAuth.getInstance().signOut();
+            logOut();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

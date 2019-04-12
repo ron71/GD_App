@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "44684206206-rka5tupi6hqf6qqjqt8chk7usd7jdtqs.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "in.ac.kiit.justtalk",
-            "certificate_hash": "5aec4558f910c3d83c507a2480cd0a31ad7fb9e3"
-          }
-        },
-        {
           "client_id": "44684206206-nbhinv0tvm4dts9123fbva3u3keok7dc.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -33,20 +25,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "44684206206-nbhinv0tvm4dts9123fbva3u3keok7dc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

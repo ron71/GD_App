@@ -487,6 +487,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 mem.add(m6.getText().toString());
 
                 mem = trimList(mem);
+                if(!isNewUser){
+                    if(mem.contains(appuser.getUserID())){
+                        Snackbar.make(getCurrentFocus(), "Don't enter your own ID.", Snackbar.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
 
 
                 Log.e("Type", type);
@@ -494,11 +500,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                if(isNewUser==false){
                    user.setVents(appuser.getVents());
                    user.setVentsConducted(appuser.getVentsConducted());
+
                }
-                if(mem.contains(appuser.getUserID())){
-                    Snackbar.make(getCurrentFocus(), "Don't enter your own ID.", Snackbar.LENGTH_SHORT).show();
-                    return;
-                }
+
                 addUserInFireBase(user);
                 saveToDatabase(user, flag);
                 startActivity(new Intent(this,HomeActivity.class));

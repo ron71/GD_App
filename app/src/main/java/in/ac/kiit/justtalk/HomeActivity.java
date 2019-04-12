@@ -274,7 +274,7 @@ public class HomeActivity extends AppCompatActivity
             intent.setData(Uri.parse("mailto:"));
             intent.putExtra(Intent.EXTRA_EMAIL, "kiit.gdclub@gmail.com");
             intent.putExtra(Intent.EXTRA_SUBJECT, "Query/Suggestion - "+user.getEmail().substring(0, user.getEmail().indexOf("@")));
-            intent.putExtra(Intent.EXTRA_TEXT, "Mail on : gdclubkiit@gmail.com\nType your content here and select any one query or suggestion in subject and omit the other one.");
+            intent.putExtra(Intent.EXTRA_TEXT, "Mail at : gdclubkiit@gmail.com\nType your content here and select any one query or suggestion in subject and omit the other one.");
 
             startActivity(Intent.createChooser(intent, "Send email..."));
         }

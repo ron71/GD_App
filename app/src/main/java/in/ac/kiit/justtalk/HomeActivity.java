@@ -66,10 +66,10 @@ public class HomeActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (ConnectivityHelper.isConnectedToNetwork(this)) {
-            //Show the connected screen
-            setContentView(R.layout.activity_home);
-        }
+//        if (ConnectivityHelper.isConnectedToNetwork(this)) {
+//            //Show the connected screen
+//            setContentView(R.layout.activity_home);
+//        }
         setContentView(R.layout.activity_home);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -274,7 +274,7 @@ public class HomeActivity extends AppCompatActivity
             intent.setData(Uri.parse("mailto:"));
             intent.putExtra(Intent.EXTRA_EMAIL, "kiit.gdclub@gmail.com");
             intent.putExtra(Intent.EXTRA_SUBJECT, "Query/Suggestion - "+user.getEmail().substring(0, user.getEmail().indexOf("@")));
-            intent.putExtra(Intent.EXTRA_TEXT, "Mail at : gdclubkiit@gmail.com\nType your content here and select any one query or suggestion in subject and omit the other one.");
+            intent.putExtra(Intent.EXTRA_TEXT, "Mail at : kiit.gdclub@gmail.com\nType your content here and select any one query or suggestion in subject and omit the other one.");
 
             startActivity(Intent.createChooser(intent, "Send email..."));
         }

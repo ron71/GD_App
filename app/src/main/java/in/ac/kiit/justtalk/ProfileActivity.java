@@ -306,10 +306,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
       branch.setText(user.getBranch());
 //      Log.e("BRANCH", user.getBranch());
       switch (user.getYear()){
-          case "1": rb1.setEnabled(true); break;
-          case "2": rb2.setEnabled(true); break;
-          case "3": rb3.setEnabled(true); break;
-          case "4": rb4.setEnabled(true); break;
+          case "1": rb1.setChecked(true); break;
+          case "2": rb2.setChecked(true); break;
+          case "3": rb3.setChecked(true); break;
+          case "4": rb4.setChecked(true); break;
       }
 
       LinearLayout l=null;

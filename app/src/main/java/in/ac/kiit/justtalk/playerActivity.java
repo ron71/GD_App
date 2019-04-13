@@ -92,7 +92,7 @@ public class playerActivity extends AppCompatActivity {
                         .setPositiveButton("Yes, DISMISS", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                getApplicationContext().startActivity(new Intent(playerActivity.this, HomeActivity.class));
+                                playerActivity.this.startActivity(new Intent(playerActivity.this, HomeActivity.class));
                                 finish();
 
                             }

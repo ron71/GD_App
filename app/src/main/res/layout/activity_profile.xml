@@ -188,7 +188,7 @@
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textColor="@color/colorAccentTheme"
-                        android:text="4RTH"
+                        android:text="4TH"
                         android:id="@+id/rb4"
                         android:layout_weight="1"/>
                 </RadioGroup>

@@ -11,4 +11,4 @@
 /build
 /captures
 .externalNativeBuild
-/.app/src/main/java/in/ac/kiit/justtalk/mailServices/Config.java
+/app/src/main/java/in/ac/kiit/justtalk/mailServices/Config.java

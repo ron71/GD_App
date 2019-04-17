@@ -8,7 +8,7 @@ package in.ac.kiit.justtalk.mailServices;
 
 
 public class Config {
-    public static final String EMAIL ="gdclubkiit@gmail.com";
-    public static final String PASSWORD ="letsGD@2019";
+    public static final String EMAIL ="example@gmail.com";
+    public static final String PASSWORD ="Examplelets@2019";
 }
 

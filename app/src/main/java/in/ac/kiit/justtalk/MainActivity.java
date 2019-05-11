@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     int no_of_players=3;
     int duration;
 
-    EditText p1,p2,p3,p4,p5,p6;
+    EditText[] playerEdts = new EditText[12];
     Button g2go, edit;
 
     private void getFromBundle(Bundle b){
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         for(int i=0; i<mem.size(); i++){
             Log.e("TRIMMED PLAYERS", "--------"+mem.get(i)+"--------");
-            if(mem.get(i).isEmpty()||mem.get(i).length()!=7){
+            if(mem.get(i).isEmpty()){
                 mem.remove(i);
                 i--;
             }
@@ -69,12 +69,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         g2go = findViewById(R.id.good_to_go_btn);
-        p1 = findViewById(R.id.edtPlayer1);
-        p2 = findViewById(R.id.edtPlayer2);
-        p3 = findViewById(R.id.edtPlayer3);
-        p4 = findViewById(R.id.edtPlayer4);
-        p5 = findViewById(R.id.edtPlayer5);
-        p6 = findViewById(R.id.edtPlayer6);
+        playerEdts[0] = findViewById(R.id.edtPlayer1);
+        playerEdts[1] = findViewById(R.id.edtPlayer2);
+        playerEdts[2] = findViewById(R.id.edtPlayer3);
+        playerEdts[3] = findViewById(R.id.edtPlayer4);
+        playerEdts[4] = findViewById(R.id.edtPlayer5);
+        playerEdts[5] = findViewById(R.id.edtPlayer6);
+        playerEdts[6] = findViewById(R.id.edtPlayer7);
+        playerEdts[7] = findViewById(R.id.edtPlayer8);
+        playerEdts[8] = findViewById(R.id.edtPlayer9);
+        playerEdts[9] = findViewById(R.id.edtPlayer10);
+        playerEdts[10] = findViewById(R.id.edtPlayer11);
+        playerEdts[11] = findViewById(R.id.edtPlayer12);
 
         edit = findViewById(R.id.back_btn);
         edit.setOnClickListener(new View.OnClickListener() {
@@ -90,28 +96,43 @@ public class MainActivity extends AppCompatActivity {
         getFromBundle(b);
 
         switch (no_of_players){
-            case 3:{
-                p4.setFocusable(false);
-                p5.setFocusable(false);
-                p6.setFocusable(false);
-
-                p4.setEnabled(false);
-                p5.setEnabled(false);
-                p6.setEnabled(false);
+            case 6:{
+                for(int i=6; i<playerEdts.length;i++){
+                    playerEdts[i].setEnabled(false);
+                }
                 break;
             }
-            case 4:{
-                p5.setFocusable(false);
-                p6.setFocusable(false);
-
-                p5.setEnabled(false);
-                p6.setEnabled(false);
+            case 7:{
+                for(int i=7; i<playerEdts.length;i++){
+                    playerEdts[i].setEnabled(false);
+                }
                 break;
             }
-            case 5:{
-                p6.setFocusable(false);
+            case 8:{
+                for(int i=8; i<playerEdts.length;i++){
+                    playerEdts[i].setEnabled(false);
+                }
+                break;
+            }
 
-                p6.setEnabled(false);
+            case 9:{
+                for(int i=9; i<playerEdts.length;i++){
+                    playerEdts[i].setEnabled(false);
+                }
+                break;
+            }
+
+            case 10:{
+                for(int i=7; i<playerEdts.length;i++){
+                    playerEdts[i].setEnabled(false);
+                }
+                break;
+            }
+
+            case 11:{
+                for(int i=7; i<playerEdts.length;i++){
+                    playerEdts[i].setEnabled(false);
+                }
                 break;
             }
         }
@@ -127,14 +148,12 @@ public class MainActivity extends AppCompatActivity {
                 gdID = id+"_"+timeStamp;
                 organiserID = id;
                 ArrayList<String> roll = new ArrayList<String>();
-                roll.add(p1.getText().toString());
-                roll.add(p2.getText().toString());
-                roll.add(p3.getText().toString());
-                roll.add(p4.getText().toString());
-                roll.add(p5.getText().toString());
-                roll.add(p6.getText().toString());
+                for(int i=0; i<playerEdts.length;i++){
+                    roll.add(playerEdts[i].getText().toString());
+                }
 
                 roll =trimPlayers(roll);
+                Log.e("TIMMED ROLL SIZE", roll.size()+"");
 
                 for(int i=0;i<roll.size(); i++){
                     if(roll.get(i).length()==7){
@@ -152,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 //GDEvent gd = new GDEvent(gdID, id, timeStamp,type, topic, players , "7000");
-               if(roll.size()>=3){
+               if(roll.size()>=6){
                    Intent intent =new Intent(MainActivity.this, playerActivity.class);
                    intent.putExtra("gdID", gdID);
                    intent.putExtra("organiserID", organiserID);
@@ -165,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                    finish();
                }
                else{
-                   Snackbar.make(view,"Minimum 3 players required.", Snackbar.LENGTH_LONG).show();
+                   Snackbar.make(view,"Minimum 6 players required.", Snackbar.LENGTH_LONG).show();
                    return;
                }
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string-array name="players_array">
+        <item android:id="@+id/p6" android:title="6 Players"/>
+        <item android:id="@+id/p7" android:title="7 Players"/>
+        <item android:id="@+id/p8" android:title="8 Players"/>
+        <item android:id="@+id/p9" android:title="9 Players"/>
+        <item android:id="@+id/p10" android:title="10 Players"/>
+        <item android:id="@+id/p11" android:title="11 Players"/>
+        <item android:id="@+id/p12" android:title="12 Players"/>
+    </string-array>
+</resources>

@@ -6,10 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,10 +26,12 @@ public class InitiateGDActivity extends AppCompatActivity {
     EditText topic_edt;
     String type, topic, timeStamp,gdID;
     RadioGroup topicRG, durRG, playerRG;
-    int no_of_players=3;
+    int no_of_players=6;
     Button next;
     TextView id_txt;
     int dur;
+    Spinner spinner;
+    String[] NoOfPlayers = {"6 Players","7 Players","8 Players","9 Players","10 Players","11 Players","12 Players"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +48,11 @@ public class InitiateGDActivity extends AppCompatActivity {
         topic_edt = findViewById(R.id.topic_edt);
         topicRG = findViewById(R.id.gd_type_rg);
         durRG = findViewById(R.id.dur_rg);
-        playerRG = findViewById(R.id.no_player_rg);
+       // playerRG = findViewById(R.id.no_player_rg);
         id_txt = findViewById(R.id.session_id_txt);
-        RadioButton threeRB = findViewById(R.id.three_player_rb);
+       // RadioButton threeRB = findViewById(R.id.three_player_rb);
+        spinner = findViewById(R.id.spinner);
+
 
         next = findViewById(R.id.next_btn);
 
@@ -56,7 +64,7 @@ public class InitiateGDActivity extends AppCompatActivity {
 
         gdID = id+"_"+timeStamp;
         id_txt.setText(gdID);
-        threeRB.setSelected(true);
+      //  threeRB.setSelected(true);
 
         topicRG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -79,6 +87,9 @@ public class InitiateGDActivity extends AppCompatActivity {
             }
         });
 
+        // Radio Buttons
+        /*
+
         playerRG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -91,6 +102,22 @@ public class InitiateGDActivity extends AppCompatActivity {
             }
         });
 
+*/
+
+        ArrayAdapter<CharSequence> adapter  = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_list_item_1,NoOfPlayers);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                no_of_players = Integer.parseInt(NoOfPlayers[i].split(" ")[0]);
+                Log.e("No of player", no_of_players+"");
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override

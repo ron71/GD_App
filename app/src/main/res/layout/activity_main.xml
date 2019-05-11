@@ -33,163 +33,320 @@
         app:cardCornerRadius="10dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp">
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginHorizontal="15dp">
-
-            <LinearLayout
+            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/abril_fatface"
-                    android:gravity="center"
-                    android:text="PLAYER 1 :"
-                    android:textSize="20dp" />
-
-                <EditText
-                    android:id="@+id/edtPlayer1"
+                android:layout_height="500dp"
+                android:scrollbarStyle="insideOverlay">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:hint="Enter the roll no."
-                    android:inputType="number"
-                    android:textAlignment="center" />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="15dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/abril_fatface"
-                    android:gravity="center"
-                    android:text="PLAYER 2 :"
-                    android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 1 :"
+                            android:textSize="20dp" />
 
-                <EditText
-                    android:id="@+id/edtPlayer2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:hint="Enter the roll no."
-                    android:inputType="number"
-                    android:textAlignment="center" />
-            </LinearLayout>
+                        <EditText
+                            android:id="@+id/edtPlayer1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/abril_fatface"
-                    android:gravity="center"
-                    android:text="PLAYER 3 :"
-                    android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 2 :"
+                            android:textSize="20dp" />
 
-                <EditText
-                    android:id="@+id/edtPlayer3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:hint="Enter the roll no."
-                    android:inputType="number"
-                    android:textAlignment="center" />
-            </LinearLayout>
+                        <EditText
+                            android:id="@+id/edtPlayer2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/abril_fatface"
-                    android:gravity="center"
-                    android:text="PLAYER 4 :"
-                    android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 3 :"
+                            android:textSize="20dp" />
 
-                <EditText
-                    android:id="@+id/edtPlayer4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:hint="Enter the roll no."
-                    android:inputType="number"
-                    android:textAlignment="center" />
-            </LinearLayout>
+                        <EditText
+                            android:id="@+id/edtPlayer3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/abril_fatface"
-                    android:gravity="center"
-                    android:text="PLAYER 5 :"
-                    android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 4 :"
+                            android:textSize="20dp" />
 
-                <EditText
-                    android:id="@+id/edtPlayer5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:hint="Enter the roll no."
-                    android:inputType="number"
-                    android:textAlignment="center" />
-            </LinearLayout>
+                        <EditText
+                            android:id="@+id/edtPlayer4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/abril_fatface"
-                    android:gravity="center"
-                    android:text="PLAYER 6 :"
-                    android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 5 :"
+                            android:textSize="20dp" />
 
-                <EditText
-                    android:id="@+id/edtPlayer6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:hint="Enter the roll no."
-                    android:inputType="number"
-                    android:textAlignment="center" />
-            </LinearLayout>
+                        <EditText
+                            android:id="@+id/edtPlayer5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 6 :"
+                            android:textSize="20dp" />
+
+                        <EditText
+                            android:id="@+id/edtPlayer6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 7 :"
+                            android:textSize="20dp" />
+
+                        <EditText
+                            android:id="@+id/edtPlayer7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 8 :"
+                            android:textSize="20dp" />
+
+                        <EditText
+                            android:id="@+id/edtPlayer8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 9 :"
+                            android:textSize="20dp" />
+
+                        <EditText
+                            android:id="@+id/edtPlayer9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 10 :"
+                            android:textSize="20dp" />
+
+                        <EditText
+                            android:id="@+id/edtPlayer10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 11 :"
+                            android:textSize="20dp" />
+
+                        <EditText
+                            android:id="@+id/edtPlayer11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abril_fatface"
+                            android:gravity="center"
+                            android:text="PLAYER 12 :"
+                            android:textSize="20dp" />
+
+                        <EditText
+                            android:id="@+id/edtPlayer12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Enter the roll no."
+                            android:inputType="number"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -222,7 +379,10 @@
 
             </LinearLayout>
 
+
         </LinearLayout>
+        </ScrollView>
+
     </android.support.v7.widget.CardView>
 
 

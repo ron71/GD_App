@@ -143,42 +143,48 @@
                        android:text="PLAYERS : "
                        android:layout_gravity="center"/>
 
-                   <RadioGroup
-                       android:layout_width="match_parent"
+                   <!--<RadioGroup-->
+                       <!--android:layout_width="match_parent"-->
+                       <!--android:layout_height="wrap_content"-->
+                       <!--android:id="@+id/no_player_rg"-->
+                       <!--android:layout_gravity="center"-->
+                       <!--android:orientation="vertical"-->
+                       <!--android:layout_marginHorizontal="50dp">-->
+                       <!--<RadioButton-->
+                           <!--android:layout_width="wrap_content"-->
+                           <!--android:layout_height="wrap_content"-->
+                           <!--android:text="THREE PLAYERS"-->
+                           <!--android:id="@+id/three_player_rb"-->
+                           <!--android:textStyle="bold"-->
+                           <!--android:layout_weight="1"/>-->
+                       <!--<RadioButton-->
+                           <!--android:layout_width="wrap_content"-->
+                           <!--android:layout_height="wrap_content"-->
+                           <!--android:text="FOUR PLAYERS"-->
+                           <!--android:id="@+id/four_player_rb"-->
+                           <!--android:textStyle="bold"-->
+                           <!--android:layout_weight="1"/>-->
+                       <!--<RadioButton-->
+                           <!--android:layout_width="wrap_content"-->
+                           <!--android:layout_height="wrap_content"-->
+                           <!--android:text="FIVE PLAYERS"-->
+                           <!--android:id="@+id/five_player_rb"-->
+                           <!--android:textStyle="bold"-->
+                           <!--android:layout_weight="1"/>-->
+                       <!--<RadioButton-->
+                           <!--android:layout_width="wrap_content"-->
+                           <!--android:layout_height="wrap_content"-->
+                           <!--android:text="SIX PLAYERS"-->
+                           <!--android:id="@+id/six_player_rb"-->
+                           <!--android:textStyle="bold"-->
+                           <!--android:layout_weight="1"/>-->
+                   <!--</RadioGroup>-->
+                   <Spinner
+                       android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-                       android:id="@+id/no_player_rg"
-                       android:layout_gravity="center"
-                       android:orientation="vertical"
-                       android:layout_marginHorizontal="50dp">
-                       <RadioButton
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="THREE PLAYERS"
-                           android:id="@+id/three_player_rb"
-                           android:textStyle="bold"
-                           android:layout_weight="1"/>
-                       <RadioButton
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="FOUR PLAYERS"
-                           android:id="@+id/four_player_rb"
-                           android:textStyle="bold"
-                           android:layout_weight="1"/>
-                       <RadioButton
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="FIVE PLAYERS"
-                           android:id="@+id/five_player_rb"
-                           android:textStyle="bold"
-                           android:layout_weight="1"/>
-                       <RadioButton
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="SIX PLAYERS"
-                           android:id="@+id/six_player_rb"
-                           android:textStyle="bold"
-                           android:layout_weight="1"/>
-                   </RadioGroup>
+                       android:id="@+id/spinner"
+                       android:textAlignment="center"
+                       android:layout_gravity="right"/>
                </LinearLayout>
 
                <LinearLayout

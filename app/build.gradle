@@ -9,7 +9,7 @@ android {
         applicationId "in.ac.kiit.justtalk"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 9
+        versionCode 11
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
